@@ -153,7 +153,7 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg>
               Último status dos atendimentos
             </h2>
-            <span style="font-size: 12px; color: #6B6168;">Último status registrado no agente</span>
+            <span style="font-size: 12px; color: #6B6168;">Última opção escolhida no agente</span>
           </div>
           <sc-for list="{{live}}" as="a" hint-placeholder-count="7">
             <div style="display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid #F4EEE0;">
@@ -230,6 +230,13 @@ class Component extends DCLogic {
       return { h: Math.max(2, Math.round(v / 120 * 200)), peak: v === 96, label: hour % 2 === 0 ? String(hour).padStart(2, '0') + 'h' : '', fill: v === 96 ? '#D20143' : (v === 0 ? '#F4EEE0' : '#9CCBEA') };
     });
     var pink = { tileBg: '#FDE6EC', tileFg: '#D20143' }, purple = { tileBg: '#E3F1FA', tileFg: '#007CC2' }, blue = { tileBg: '#E6F0FD', tileFg: '#2F6FD6' }, amber = { tileBg: '#FFF0E0', tileFg: '#C26A00' };
+    var O = {
+      alo: { tag: 'Alô Alô', tagBg: '#FDE6EC', tagFg: '#B8003A' },
+      prog: { tag: 'Programas ao vivo', tagBg: '#E6F0FD', tagFg: '#2456A6' },
+      musica: { tag: 'Pedido de música', tagBg: '#EFE6F8', tagFg: '#6B3FA0' },
+      promo: { tag: 'Promoção da hora', tagBg: '#FFF0E0', tagFg: '#9A5300' },
+      tema: { tag: 'Tema do dia', tagBg: '#E3F5EA', tagFg: '#157A42' }
+    };
     var T = {
       proc: { tag: 'Transcrevendo…', tagBg: '#F5F0E3', tagFg: '#4A4247' },
       apto: { tag: 'IA: apto', tagBg: '#E3F5EA', tagFg: '#157A42' },
@@ -249,13 +256,13 @@ class Component extends DCLogic {
       ],
       bars: bars,
       live: [
-        Object.assign({ time: '14:28', who: 'Tatiane R. · Nova Iguaçu', detail: 'Alô em áudio (0:17)', icon: I.wave }, pink, T.proc),
-        Object.assign({ time: '14:27', who: 'Rosângela F. · Campo Grande', detail: '#TBTdoOuvinte — conheceu o marido num baile em 1998', icon: I.wave }, pink, T.apto),
-        Object.assign({ time: '14:27', who: 'Novo ouvinte · (21) 9****-0192', detail: 'Escolheu "Programas ao vivo" no menu', icon: I.chat }, blue, T.chat),
-        Object.assign({ time: '14:26', who: 'Diego M. · Méier', detail: 'Pedido de música: Revelação', icon: I.music }, purple, T.ok),
-        Object.assign({ time: '14:25', who: 'Kátia L. · Bangu', detail: 'Alô em texto para a mãe, que faz 80 anos', icon: I.chat }, pink, T.apto),
-        Object.assign({ time: '14:24', who: 'João Silva · Niterói', detail: 'Participou da promoção da hora', icon: I.gift }, pink, T.ok),
-        Object.assign({ time: '14:22', who: 'Luciana P. · Itaguaí', detail: 'Reclamação sobre o sinal da rádio', icon: I.wave }, pink, T.fora)
+        Object.assign({ time: '14:28', who: 'Tatiane R. · Nova Iguaçu', detail: 'Alô em áudio (0:17)', icon: I.wave }, pink, O.alo),
+        Object.assign({ time: '14:27', who: 'Rosângela F. · Campo Grande', detail: '#TBTdoOuvinte — conheceu o marido num baile em 1998', icon: I.wave }, pink, O.tema),
+        Object.assign({ time: '14:27', who: 'Novo ouvinte · (21) 9****-0192', detail: 'Escolheu "Programas ao vivo" no menu', icon: I.chat }, blue, O.prog),
+        Object.assign({ time: '14:26', who: 'Diego M. · Méier', detail: 'Pedido de música: Revelação', icon: I.music }, purple, O.musica),
+        Object.assign({ time: '14:25', who: 'Kátia L. · Bangu', detail: 'Alô em texto para a mãe, que faz 80 anos', icon: I.chat }, pink, O.alo),
+        Object.assign({ time: '14:24', who: 'João Silva · Niterói', detail: 'Participou da promoção da hora', icon: I.gift }, pink, O.promo),
+        Object.assign({ time: '14:22', who: 'Luciana P. · Itaguaí', detail: 'Reclamação sobre o sinal da rádio', icon: I.wave }, pink, O.alo)
       ],
       split: [
         { label: 'Transcrevendo', n: 2, pct: 8, c: '#BDB3A0' },
