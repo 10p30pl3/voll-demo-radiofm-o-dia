@@ -129,7 +129,11 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
             <sc-if value="{{answered}}" hint-placeholder-val="{{false}}">
               <div style="align-self: flex-end; max-width: 85%; padding: 10px 12px; border-radius: 12px; background: #DCF8C6; font-size: 14px;">{{answer}}</div>
               <sc-if value="{{accepted}}" hint-placeholder-val="{{false}}">
-                <div style="align-self: flex-start; max-width: 85%; padding: 10px 12px; border-radius: 12px; background: #FFFFFF; font-size: 14px;"><span style="font-size: 11px; font-weight: 700; color: #6B6168;">{{adFmt}}</span><br>{{adText}}</div>
+                <div style="align-self: flex-start; max-width: 92%; padding: 6px; border-radius: 12px; background: #FFFFFF; font-size: 14px; display: flex; flex-direction: column; gap: 6px;">
+                  <span style="padding: 2px 6px; font-size: 11px; font-weight: 700; color: #6B6168;">{{adFmt}}</span>
+                  <sc-if value="{{hasImg}}" hint-placeholder-val="{{true}}"><img src="{{adImg}}" alt="{{adAlt}}" style="display: block; width: 100%; height: auto; border-radius: 8px;"></sc-if>
+                  <span style="padding: 2px 6px 4px;">{{adText}}</span>
+                </div>
               </sc-if>
               <button type="button" onClick="{{reset}}" style="align-self: flex-start; min-height: 38px; padding: 0 14px; border: 1px solid #E5DCC8; border-radius: 999px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">Reiniciar simulação</button>
             </sc-if>
@@ -165,6 +169,7 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
 </div>
 </script>
 <script src="assets/dc-lite.js"></script>
+<script src="assets/anuncios.js"></script>
 <script>
 var STAR = 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z';
 var MEGA = 'M3 11v3a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14';
@@ -184,7 +189,7 @@ var FREQ = ['1 por dia', '1 por semana', '1 por campanha'];
 var WHEN = ['Após participar de promoção', 'Ao iniciar a conversa', 'Após enviar áudio'];
 var OFFERS = [
   { sponsor: 'Supermercados Guanabara', fmt: 1, freq: 1, when: 0, sent: 1840, yes: 612, no: 905, clicks: 241, text: 'Ofertas da semana com até 30% de desconto. Toque para ver o encarte.' },
-  { sponsor: 'Cervejaria Região Oceânica', fmt: 0, freq: 0, when: 1, sent: 960, yes: 288, no: 511, clicks: 97, text: 'Happy hour em dobro nos bares parceiros, de quinta a sábado.' },
+  { sponsor: 'Cervejaria Região Oceânica', fmt: 1, freq: 0, when: 1, sent: 960, yes: 288, no: 511, clicks: 97, text: 'Happy hour em dobro nos bares parceiros, de quinta a sábado.' },
   { sponsor: 'Clínica Sorriso Carioca', fmt: 2, freq: 2, when: 2, sent: 410, yes: 98, no: 242, clicks: 31, text: 'Avaliação odontológica gratuita para ouvintes da FM O Dia.' },
   { sponsor: 'Shopping Plaza Niterói', fmt: 1, freq: 1, when: 0, sent: 1275, yes: 466, no: 603, clicks: 184, text: 'Liquidação de inverno: lojas com até 50% off neste fim de semana.' }
 ];
@@ -226,6 +231,9 @@ class Component extends DCLogic {
       answer: ans === 'yes' ? 'Sim, quero ver' : 'Agora não',
       adFmt: FMT[cfg.fmt].toUpperCase() + ' · ANÚNCIO',
       adText: base.text,
+      hasImg: cfg.fmt !== 0,
+      adImg: cfg.fmt === 2 ? ANUNCIOS.audio(sel) : ANUNCIOS.image(sel),
+      adAlt: 'Arte fictícia do anúncio de ' + base.sponsor,
       yes: function () { answer(true); }, no: function () { answer(false); },
       reset: function () { self.setState({ ans: null }); },
       reg: ans ? 'Resposta registrada: ' + (ans === 'yes' ? 'aceite' : 'recusa') + ' · ' + base.sponsor + ' · ' + (cnt.y + cnt.n) + ' simulação(ões) nesta sessão.' : 'A resposta do ouvinte é registrada no perfil e nos indicadores do patrocinador.'
