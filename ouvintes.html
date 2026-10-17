@@ -107,9 +107,9 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
                 <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Ouvinte</th>
                 <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Cidade</th>
                 <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Programas</th>
-                <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Artistas mais pedidos</th>
-                <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Interações</th>
+                                <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Interações</th>
                 <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Promoções</th>
+                <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Promoções ganhas</th>
                 <th style="padding: 14px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Última interação</th>
               </tr>
             </thead>
@@ -127,9 +127,9 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
                   </td>
                   <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{r.city}}</td>
                   <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0; color: #4A4247;">{{r.shows}}</td>
-                  <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0; color: #4A4247;">{{r.artists}}</td>
                   <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0; font-weight: 700;">{{r.n}}</td>
                   <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0; font-weight: 700;">{{r.p}}</td>
+                  <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0; font-weight: 700; color: {{r.wColor}};">{{r.w}}</td>
                   <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0; color: #6B6168;">{{r.last}}</td>
                 </tr>
               </sc-for>
@@ -166,21 +166,21 @@ class Component extends DCLogic {
       return { label: d[0], icon: d[1], href: d[2], fg: on ? '#B8003A' : '#FFFFFF', bg: on ? '#FEF9C0' : 'transparent', fw: on ? 700 : 600 };
     });
     var all = [
-      { ini: 'JS', name: 'João Silva', raiz: 'FM O Dia Raiz', club: true, city: 'Niterói', shows: 'Se Liga, Vivy e Thales', artists: 'Menos é Mais, Ferrugem', n: 17, p: 4, last: 'hoje, 08:41' },
-      { ini: 'CR', name: 'Carlos Ribeiro', raiz: 'FM O Dia Raiz', club: true, city: 'São Gonçalo', shows: 'Se Liga', artists: 'Thiaguinho', n: 23, p: 6, last: 'hoje, 07:55' },
-      { ini: 'ML', name: 'Mariana Lopes', raiz: '', club: false, city: 'Rio de Janeiro', shows: 'Se Liga, Funk-U', artists: 'Ludmilla, Ferrugem', n: 14, p: 2, last: 'ontem, 18:12' },
-      { ini: 'AP', name: 'Ana Paula Costa', raiz: '', club: false, city: 'Duque de Caxias', shows: 'Se Liga', artists: 'Menos é Mais', n: 12, p: 3, last: 'ontem, 08:02' },
-      { ini: 'RT', name: 'Rafael Teixeira', raiz: 'FM O Dia Raiz', club: true, city: 'Nova Iguaçu', shows: 'Se Liga, FM O Dia Retrô', artists: 'Revelação, Raça Negra', n: 31, p: 7, last: '06/10, 07:20' },
-      { ini: 'PM', name: 'Patrícia Moura', raiz: '', club: false, city: 'Rio de Janeiro', shows: 'Se Liga', artists: 'Ferrugem', n: 10, p: 1, last: '05/10, 06:48' },
-      { ini: 'DM', name: 'Diego Martins', raiz: 'FM O Dia Raiz', club: true, city: 'Rio de Janeiro', shows: 'Se Liga, Back To Brasil', artists: 'Revelação', n: 19, p: 5, last: '04/10, 08:30' },
-      { ini: 'TR', name: 'Tatiane Rocha', raiz: '', club: false, city: 'Nova Iguaçu', shows: 'Se Liga, Vibe FM O Dia', artists: 'Menos é Mais', n: 11, p: 2, last: '03/10, 07:12' }
+      { ini: 'JS', name: 'João Silva', raiz: 'FM O Dia Raiz', club: true, city: 'Niterói', shows: 'Se Liga, Vivy e Thales', artists: 'Menos é Mais, Ferrugem', n: 17, p: 4, w: 1, last: 'hoje, 08:41' },
+      { ini: 'CR', name: 'Carlos Ribeiro', raiz: 'FM O Dia Raiz', club: true, city: 'São Gonçalo', shows: 'Se Liga', artists: 'Thiaguinho', n: 23, p: 6, w: 2, last: 'hoje, 07:55' },
+      { ini: 'ML', name: 'Mariana Lopes', raiz: '', club: false, city: 'Rio de Janeiro', shows: 'Se Liga, Funk-U', artists: 'Ludmilla, Ferrugem', n: 14, p: 2, w: 0, last: 'ontem, 18:12' },
+      { ini: 'AP', name: 'Ana Paula Costa', raiz: '', club: false, city: 'Duque de Caxias', shows: 'Se Liga', artists: 'Menos é Mais', n: 12, p: 3, w: 0, last: 'ontem, 08:02' },
+      { ini: 'RT', name: 'Rafael Teixeira', raiz: 'FM O Dia Raiz', club: true, city: 'Nova Iguaçu', shows: 'Se Liga, FM O Dia Retrô', artists: 'Revelação, Raça Negra', n: 31, p: 7, w: 2, last: '06/10, 07:20' },
+      { ini: 'PM', name: 'Patrícia Moura', raiz: '', club: false, city: 'Rio de Janeiro', shows: 'Se Liga', artists: 'Ferrugem', n: 10, p: 1, w: 0, last: '05/10, 06:48' },
+      { ini: 'DM', name: 'Diego Martins', raiz: 'FM O Dia Raiz', club: true, city: 'Rio de Janeiro', shows: 'Se Liga, Back To Brasil', artists: 'Revelação', n: 19, p: 5, w: 1, last: '04/10, 08:30' },
+      { ini: 'TR', name: 'Tatiane Rocha', raiz: '', club: false, city: 'Nova Iguaçu', shows: 'Se Liga, Vibe FM O Dia', artists: 'Menos é Mais', n: 11, p: 2, w: 0, last: '03/10, 07:12' }
     ];
     var defs = [['todos', 'Todos'], ['raiz', 'Só FM O Dia Raiz'], ['nao', 'Fora do clube']];
     var chips = defs.map(function (d) {
       var on = self.state.club === d[0];
       return { label: d[1], border: on ? '#B8003A' : '#E5DCC8', bg: on ? '#B8003A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#2A2228', pick: function () { self.setState({ club: d[0] }); } };
     });
-    var rows = all.filter(function (r) { return self.state.club === 'todos' || (self.state.club === 'raiz' ? r.club : !r.club); });
+    var rows = all.filter(function (r) { return self.state.club === 'todos' || (self.state.club === 'raiz' ? r.club : !r.club); }).map(function (r) { return Object.assign({}, r, { wColor: r.w > 0 ? '#157A42' : '#6B6168' }); });
     var totals = { todos: '2.318', raiz: '964', nao: '1.354' };
     return { nav: nav, chips: chips, rows: rows, total: totals[this.state.club] };
   }
