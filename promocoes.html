@@ -108,12 +108,18 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
 
           <sc-if value="{{showDraw}}" hint-placeholder-val="{{true}}">
             <section aria-label="Sorteio" style="display: flex; flex-direction: column; gap: 16px; padding: 20px; border-radius: 14px; background: #FFF9DB; border: 1px solid #F2D27A;">
-              <div style="display: flex; flex-direction: column; gap: 4px;">
-                <h3 style="margin: 0; display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 700;">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"></path></svg>
-                  Sorteio entre elegíveis
-                </h3>
-                <span style="font-size: 13px; color: #4A4247;">Defina quem pode ganhar. O Portal sorteia ao acaso somente entre os participantes elegíveis.</span>
+              <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px;">
+                            <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <h3 style="margin: 0; display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 700;">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"></path></svg>
+                    Sorteio entre elegíveis
+                  </h3>
+                  <span style="font-size: 13px; color: #4A4247;">Defina quem pode ganhar. O Portal sorteia ao acaso somente entre os participantes elegíveis.</span>
+                </div>
+                <button type="button" onClick="{{resetSim}}" style="min-height: 44px; padding: 0 16px; border: 1px solid #E5DCC8; border-radius: 12px; background: #FFFFFF; color: #2A2228; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"></path></svg>
+                  Reiniciar simulação
+                </button>
               </div>
 
               <div style="display: flex; flex-wrap: wrap; gap: 14px 20px; padding: 14px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #F2D27A;">
@@ -257,6 +263,7 @@ var PROMOS = [
   { name: 'Desconto em ingressos', where: 'FM O Dia Raiz · benefício contínuo', count: '1.204', status: 'Aberta', prize: 'sem sorteio', mode: 'none', tag: 'Exclusiva FM O Dia Raiz', def: { qty: 1, region: 'Todas', since: 0, norepeat: true, raiz: 'only' } },
   { name: 'Kit FM O Dia', where: 'Se Liga · 06h às 09h', count: '457', status: 'Encerrada', prize: '2 ganhadores', mode: 'draw', tag: '', def: { qty: 2, region: 'Todas', since: 0, norepeat: true, raiz: 'all' } }
 ];
+var INIT_WIN = { 4: { list: [{ idx: 3, ok: true }, { idx: 8, ok: true }], used: [3, 8], log: ['Sorteio às 09:00 por Carla Mendes — 2 ganhadores confirmados.'] } };
 var BADGE = { 'Aberta': ['#E3F5EA', '#157A42'], 'Encerrada': ['#F5F0E3', '#4A4247'] };
 function hhmm() { var d = new Date(); return [d.getHours(), d.getMinutes()].map(function (x) { return String(x).padStart(2, '0'); }).join(':'); }
 
@@ -265,7 +272,7 @@ class Component extends DCLogic {
     super(props);
     this.state = {
       sel: 0, cfg: {},
-      win: { 4: { list: [{ idx: 3, ok: true }, { idx: 8, ok: true }], used: [3, 8], log: ['Sorteio às 09:00 por Carla Mendes — 2 ganhadores confirmados.'] } }
+      win: JSON.parse(JSON.stringify(INIT_WIN))
     };
   }
   cfgOf(i) { return Object.assign({}, PROMOS[i].def, this.state.cfg[i] || {}); }
@@ -374,6 +381,7 @@ class Component extends DCLogic {
       sinceChips: sinceOpts.map(function (o) { return chip(o[1], c.since === o[0], guard(function () { setC({ since: o[0] }); })); }),
       repeatChips: [[true, 'Não repetir vencedores'], [false, 'Permitir repetição']].map(function (o) { return chip(o[1], c.norepeat === o[0], guard(function () { setC({ norepeat: o[0] }); })); }),
       raizChips: raizOpts.map(function (o) { return chip(o[1], c.raiz === o[0], guard(function () { setC({ raiz: o[0] }); })); }),
+      resetSim: function () { var w2 = Object.assign({}, self.state.win), c2 = Object.assign({}, self.state.cfg); delete w2[sel]; delete c2[sel]; if (INIT_WIN[sel]) w2[sel] = JSON.parse(JSON.stringify(INIT_WIN[sel])); self.setState({ win: w2, cfg: c2 }); },
       eligCount: eligCount, sampleCount: PEOPLE.length,
       eligNote: c.raiz === 'pref' ? 'membros Raiz têm o dobro de chance' : (locked ? 'filtros travados após o sorteio' : 'ajuste os filtros acima'),
       canDraw: !locked && pool.length > 0 && cur.status === 'Aberta',
