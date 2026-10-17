@@ -101,6 +101,7 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
               <span style="font-size: 14px; color: #6B6168;">{{cur.where}} · {{cur.count}} participantes · {{cur.prize}}</span>
             </div>
             <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" onClick="{{toggleClose}}" style="min-height: 46px; padding: 0 18px; border: 1px solid {{closeBorder}}; border-radius: 12px; background: #FFFFFF; color: {{closeFg}}; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">{{closeLabel}}</button>
               <button type="button" style="min-height: 46px; padding: 0 18px; border: 1px solid #E5DCC8; border-radius: 12px; background: #FFFFFF; color: #2A2228; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Exportar CSV</button>
               <button type="button" style="min-height: 46px; padding: 0 20px; border: none; border-radius: 12px; background: #D20143; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Exportar para sorteadores</button>
             </div>
@@ -271,11 +272,12 @@ class Component extends DCLogic {
   constructor(props) {
     super(props);
     this.state = {
-      sel: 0, cfg: {},
+      sel: 0, cfg: {}, closed: {},
       win: JSON.parse(JSON.stringify(INIT_WIN))
     };
   }
   cfgOf(i) { return Object.assign({}, PROMOS[i].def, this.state.cfg[i] || {}); }
+  statusOf(i) { var c = this.state.closed[i]; return c === undefined ? PROMOS[i].status : (c ? 'Encerrada' : 'Aberta'); }
   winOf(i) { return this.state.win[i] || { list: [], used: [], log: [] }; }
   eligibility(i) {
     var c = this.cfgOf(i), w = this.winOf(i);
@@ -332,8 +334,8 @@ class Component extends DCLogic {
     var guard = function (fn) { return function () { if (!locked) fn(); }; };
 
     var promos = PROMOS.map(function (p, i) {
-      var on = i === sel, b = BADGE[p.status];
-      return Object.assign({}, p, { badgeBg: b[0], badgeFg: b[1], rowBg: on ? '#FFF9DB' : '#FFFFFF', border: on ? '#F2D27A' : '#F4EEE0', pick: function () { self.setState({ sel: i }); } });
+      var on = i === sel, st = self.statusOf(i), b = BADGE[st];
+      return Object.assign({}, p, { status: st, badgeBg: b[0], badgeFg: b[1], rowBg: on ? '#FFF9DB' : '#FFFFFF', border: on ? '#F2D27A' : '#F4EEE0', pick: function () { self.setState({ sel: i }); } });
     });
 
     var winners = w.list.map(function (x, pos) {
@@ -369,7 +371,7 @@ class Component extends DCLogic {
     return {
       nav: nav,
       stats: [
-        { label: 'Promoções abertas', value: '4', icon: I.gift, tileBg: '#FDE6EC', tileFg: '#D20143' },
+        { label: 'Promoções abertas', value: String(PROMOS.filter(function (p, i) { return self.statusOf(i) === 'Aberta'; }).length), icon: I.gift, tileBg: '#FDE6EC', tileFg: '#D20143' },
         { label: 'Participações hoje', value: '1.160', icon: I.users, tileBg: '#E3F1FA', tileFg: '#007CC2' },
         { label: 'Ganhadores hoje', value: '5', icon: I.trophy, tileBg: '#FFF0E0', tileFg: '#C26A00' },
         { label: 'Listas exportadas', value: '1', icon: I.file, tileBg: '#E3F5EA', tileFg: '#157A42' }
@@ -381,10 +383,14 @@ class Component extends DCLogic {
       sinceChips: sinceOpts.map(function (o) { return chip(o[1], c.since === o[0], guard(function () { setC({ since: o[0] }); })); }),
       repeatChips: [[true, 'Não repetir vencedores'], [false, 'Permitir repetição']].map(function (o) { return chip(o[1], c.norepeat === o[0], guard(function () { setC({ norepeat: o[0] }); })); }),
       raizChips: raizOpts.map(function (o) { return chip(o[1], c.raiz === o[0], guard(function () { setC({ raiz: o[0] }); })); }),
-      resetSim: function () { var w2 = Object.assign({}, self.state.win), c2 = Object.assign({}, self.state.cfg); delete w2[sel]; delete c2[sel]; if (INIT_WIN[sel]) w2[sel] = JSON.parse(JSON.stringify(INIT_WIN[sel])); self.setState({ win: w2, cfg: c2 }); },
+      resetSim: function () { var w2 = Object.assign({}, self.state.win), c2 = Object.assign({}, self.state.cfg); delete w2[sel]; delete c2[sel]; var cl = Object.assign({}, self.state.closed); delete cl[sel]; if (INIT_WIN[sel]) w2[sel] = JSON.parse(JSON.stringify(INIT_WIN[sel])); self.setState({ win: w2, cfg: c2, closed: cl }); },
+      closeLabel: self.statusOf(sel) === 'Aberta' ? 'Encerrar promoção' : 'Reabrir promoção',
+      closeFg: self.statusOf(sel) === 'Aberta' ? '#B8003A' : '#2A2228',
+      closeBorder: self.statusOf(sel) === 'Aberta' ? '#D20143' : '#E5DCC8',
+      toggleClose: function () { var cl2 = Object.assign({}, self.state.closed); cl2[sel] = self.statusOf(sel) === 'Aberta'; self.setState({ closed: cl2 }); },
       eligCount: eligCount, sampleCount: PEOPLE.length,
       eligNote: c.raiz === 'pref' ? 'membros Raiz têm o dobro de chance' : (locked ? 'filtros travados após o sorteio' : 'ajuste os filtros acima'),
-      canDraw: !locked && pool.length > 0 && cur.status === 'Aberta',
+      canDraw: !locked && pool.length > 0 && self.statusOf(sel) === 'Aberta',
       noPool: !locked && pool.length === 0,
       drawLabel: 'Sortear ' + Math.min(c.qty, pool.length) + (Math.min(c.qty, pool.length) > 1 ? ' ganhadores' : ' ganhador'),
       draw: doDraw,
