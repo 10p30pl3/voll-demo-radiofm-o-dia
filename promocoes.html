@@ -224,7 +224,7 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
               </tbody>
             </table>
           </div>
-          <span style="font-size: 12px; color: #6B6168;">A tabela mostra uma amostra de {{sampleCount}} participantes (dados fictícios).</span>
+          <span style="font-size: 12px; color: #6B6168;">A tabela mostra somente os participantes elegíveis (e os sorteados), dentro de uma amostra de {{sampleCount}} participantes (dados fictícios).</span>
         </article>
       </section>
 
@@ -384,7 +384,8 @@ class Component extends DCLogic {
       pending: w.list.some(function (x) { return !x.ok; }),
       confirm: function () { var cw = self.winOf(sel); setW(Object.assign({}, cw, { list: cw.list.map(function (x) { return { idx: x.idx, ok: true }; }), log: cw.log.concat(hhmm() + ' — ganhadores confirmados por Carla Mendes.') })); },
       redraw: function () { var cw = self.winOf(sel), cc = self.cfgOf(sel); var el3 = self.eligibility(sel), p3 = []; el3.forEach(function (e, k) { if (e.ok) p3.push(k); }); var picks = self.pick(p3, cc, cc.qty); setW({ list: picks.map(function (k) { return { idx: k, ok: false }; }), used: cw.used.concat(picks), log: cw.log.concat(hhmm() + ' — sorteio completo refeito: ' + picks.map(function (k) { return PEOPLE[k].name; }).join(', ') + '.') }); },
-      people: PEOPLE.map(function (p, k) {
+      people: PEOPLE.map(function (p, k) { return k; }).filter(function (k) { return el[k].ok || inList.indexOf(k) >= 0; }).map(function (k) {
+        var p = PEOPLE[k];
         var hit = inList.indexOf(k); var e = el[k];
         var lw = hit >= 0 ? w.list[hit] : null;
         var cant = hit < 0 && !e.ok;
