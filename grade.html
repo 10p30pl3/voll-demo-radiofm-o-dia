@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grade e assunto — Portal Operacional FM O Dia</title>
+<link rel="icon" href="assets/logo-fmodia.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&amp;family=Barlow+Condensed:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#B8003A}a:hover{color:#8A002B}
+h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01em}
+</style>
+<style>#app button:focus-visible,#app a:focus-visible,#app input:focus-visible,#app select:focus-visible{outline:3px solid #007CC2;outline-offset:2px}</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="dc-template">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #FBF8EF; color: #2A2228; font-family: 'Barlow', 'Helvetica Neue', sans-serif;">
+
+  <nav aria-label="Menu do portal" style="flex: 1 1 230px; max-width: 250px; box-sizing: border-box; padding: 24px 16px 32px; background: #D20143; color: #FFFFFF; display: flex; flex-direction: column; gap: 4px;">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 4px 24px;">
+      <img src="assets/logo-fmodia.png" alt="FM O Dia 100,5 — Alegria que irradia" style="width: 206px; height: auto; display: block;">
+      <span style="padding: 4px 10px; border-radius: 6px; background: #FEF9C0; color: #B8003A; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">Portal Operacional</span>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="7">
+      <a href="{{n.href}}" style="display: flex; align-items: center; gap: 12px; min-height: 46px; padding: 0 14px; border-radius: 10px; text-decoration: none; color: {{n.fg}}; background: {{n.bg}}; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 18px; font-weight: {{n.fw}};">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.icon}}"></path></svg>
+        <span>{{n.label}}</span>
+      </a>
+    </sc-for>
+  </nav>
+
+  <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column;">
+    <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 16px 32px; background: #FFFFFF; border-bottom: 1px solid #EFE8D8;">
+      <div style="display: flex; align-items: center; gap: 12px; flex: 1 1 auto;">
+        <span style="font-size: 19px; font-weight: 700;">Portal Operacional FM O Dia</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #FDE6EC; color: #B8003A; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #D20143;"></span>AO VIVO</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; flex: 0 1 380px; min-height: 44px; padding: 0 16px; border-radius: 12px; background: #F5F0E3;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6168" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16M21 21l-4.3-4.3"></path></svg>
+        <label for="busca" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);">Buscar</label>
+        <input id="busca" type="search" placeholder="Buscar ouvintes, mensagens, pedidos de música, promoções…" style="flex: 1 1 auto; min-width: 0; border: none; background: transparent; font: inherit; font-size: 13px; color: #2A2228;">
+      </div>
+      <button type="button" aria-label="Notificações, 3 novas" style="position: relative; width: 44px; height: 44px; border: none; border-radius: 12px; background: transparent; color: #2A2228; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+        <span style="position: absolute; top: 6px; right: 6px; min-width: 16px; height: 16px; border-radius: 8px; background: #D20143; color: #FFFFFF; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</span>
+      </button>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #007CC2; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">CM</div>
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 14px; font-weight: 600;">Carla Mendes</span>
+          <span style="font-size: 12px; color: #6B6168;">Operação | FM O Dia</span>
+        </div>
+      </div>
+    </header>
+
+    <main style="box-sizing: border-box; padding: 28px 32px 36px; display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h1 style="margin: 0; font-size: 30px; font-weight: 700;">Grade e assunto do momento</h1>
+          <span style="font-size: 15px; color: #6B6168;">O que estiver aqui é o que o chatbot mostra ao ouvinte em cada horário.</span>
+        </div>
+        <div role="group" aria-label="Período" style="display: flex; padding: 4px; border-radius: 12px; background: #FFFFFF; border: 1px solid #EFE8D8;">
+          <button type="button" style="min-height: 40px; padding: 0 18px; border: none; border-radius: 9px; background: #D20143; color: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">Hoje</button>
+          <button type="button" style="min-height: 40px; padding: 0 18px; border: none; border-radius: 9px; background: transparent; color: #2A2228; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">Semana</button>
+        </div>
+      </div>
+
+      <section style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start;">
+        <div style="flex: 3 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 12px; padding: 20px 24px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+          <h2 style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 5h16v16H4zM4 10h16M8 3v4M16 3v4"></path></svg>
+            Grade de hoje
+          </h2>
+          <span style="font-size: 13px; color: #6B6168;">Horário, apresentadores e opções que o chatbot oferece em cada programa.</span>
+          <sc-for list="{{shows}}" as="s" hint-placeholder-count="10">
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 12px 14px; border-radius: 12px; background: {{s.rowBg}}; border: 1px solid {{s.rowBorder}};">
+              <span style="flex: 0 0 96px; font-size: 13px; font-weight: 600; color: #4A4247;">{{s.time}}</span>
+              <div style="flex: 1 1 200px; min-width: 0; display: flex; flex-direction: column;">
+                <span style="font-size: 14px; font-weight: 600;">{{s.name}}</span>
+                <span style="font-size: 12px; color: #6B6168;">{{s.hosts}}</span>
+              </div>
+              <span style="flex: 2 1 240px; min-width: 0; font-size: 12px; color: #4A4247;">{{s.options}}</span>
+              <span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: {{s.badgeBg}}; color: {{s.badgeFg}};">{{s.status}}</span>
+              <button type="button" aria-label="Editar programa {{s.name}}" style="min-height: 36px; padding: 0 12px; border: 1px solid #E5DCC8; border-radius: 10px; background: #FFFFFF; color: #2A2228; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;">Editar</button>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="flex: 2 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+          <form style="display: flex; flex-direction: column; gap: 12px; padding: 20px 24px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+            <h2 style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: #B8003A;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22c4 0 7-3 7-7 0-5-5-7-5-12-3 2-4 5-4 7-1-1-2-2-2-4-2 2-3 5-3 9 0 4 3 7 7 7z"></path></svg>
+              Assunto do momento
+            </h2>
+            <span style="font-size: 13px; color: #6B6168;">No ar: Back To Brasil, com Orelhinha</span>
+            <label for="assunto" style="font-size: 13px; font-weight: 600;">Tema que a IA usa para classificar as mensagens</label>
+            <input id="assunto" type="text" value="#TBTdoOuvinte — a música que marcou sua vida" style="min-height: 44px; padding: 0 14px; border: 1px solid #E5DCC8; border-radius: 10px; font: inherit; font-size: 14px;">
+            <label for="descricao" style="font-size: 13px; font-weight: 600;">Orientação para a classificação</label>
+            <textarea id="descricao" rows="3" style="padding: 12px 14px; border: 1px solid #E5DCC8; border-radius: 10px; font: inherit; font-size: 14px; resize: vertical;">Mensagens, em áudio ou texto, contando a história de uma música antiga. Alô e pedidos de música seguem como opções do programa.</textarea>
+            <button type="button" style="min-height: 46px; border: none; border-radius: 12px; background: #D20143; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Publicar assunto</button>
+          </form>
+
+          <div style="display: flex; flex-direction: column; gap: 4px; padding: 20px 24px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+            <h2 style="margin: 0 0 8px; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8C10 4 7 4 7 6s3 2 5 2c2 0 5 0 5-2s-3-2-5 2"></path></svg>
+              Promoções ativas
+            </h2>
+            <sc-for list="{{promos}}" as="p" hint-placeholder-count="4">
+              <label style="display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 52px; border-bottom: 1px solid #F4EEE0;">
+                <span style="display: flex; flex-direction: column; min-width: 0;">
+                  <span style="font-size: 14px; font-weight: 600;">{{p.name}}</span>
+                  <span style="font-size: 12px; color: #6B6168;">{{p.where}}</span>
+                </span>
+                <input type="checkbox" checked="{{p.on}}" style="width: 20px; height: 20px; accent-color: #D20143; flex-shrink: 0;">
+              </label>
+            </sc-for>
+          </div>
+        </div>
+      </section>
+
+      <footer style="font-size: 12px; color: #6B6168;">Tela ilustrativa — layout final definido durante o projeto.</footer>
+    </main>
+  </div>
+</div>
+</script>
+<script src="assets/dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    var I = {
+      home: 'M3 11l9-7 9 7M5 10v10h14V10',
+      link: 'M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1',
+      wave: 'M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4',
+      users: 'M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 20v-2a4 4 0 0 0-3-3.87M16 2.13a4 4 0 0 1 0 7.75',
+      cal: 'M4 5h16v16H4zM4 10h16M8 3v4M16 3v4',
+      gift: 'M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8C10 4 7 4 7 6s3 2 5 2c2 0 5 0 5-2s-3-2-5 2',
+      trophy: 'M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4',
+      gear: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1'
+    };
+    var active = 'Grade e assunto';
+    var navDefs = [['Painel operacional', I.home, 'index.html'], ['Aprovação de mensagens', I.wave, 'aprovacao.html'], ['Ouvintes', I.users, 'ouvintes.html'], ['Grade e assunto', I.cal, 'grade.html'], ['Promoções e sorteios', I.gift, 'promocoes.html'], ['FM O Dia Raiz', 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z', 'fmdiaraiz.html'], ['Publicidade', 'M3 11v3a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14', 'publicidade.html']];
+    var nav = navDefs.map(function (d) {
+      var on = d[0] === active;
+      return { label: d[0], icon: d[1], href: d[2], fg: on ? '#B8003A' : '#FFFFFF', bg: on ? '#FEF9C0' : 'transparent', fw: on ? 700 : 600 };
+    });
+    var done = { status: 'Encerrado', badgeBg: '#F5F0E3', badgeFg: '#6B6168', rowBg: '#FFFFFF', rowBorder: '#F4EEE0' };
+    var air = { status: 'AO VIVO', badgeBg: '#D20143', badgeFg: '#FFFFFF', rowBg: '#FFF9DB', rowBorder: '#F2D27A' };
+    var next = { status: 'Próximo', badgeBg: '#E3F1FA', badgeFg: '#005E94', rowBg: '#FFFFFF', rowBorder: '#F4EEE0' };
+    var later = { status: 'Agendado', badgeBg: '#F5F0E3', badgeFg: '#4A4247', rowBg: '#FFFFFF', rowBorder: '#F4EEE0' };
+    var std = 'Alô, pedir música, promoção da hora';
+    return {
+      nav: nav,
+      shows: [
+        Object.assign({ time: '06h – 09h', name: 'Se Liga', hosts: 'Alan Oliveira, Thales Muguet e Antônio', options: 'Trânsito, alô, A Casa Caiu, promoção da hora' }, done),
+        Object.assign({ time: '09h – 10h', name: 'FM O Dia Retrô', hosts: 'Alan Oliveira', options: 'Alô, promoção da hora, pedir música retrô' }, done),
+        Object.assign({ time: '10h – 14h', name: 'Vivy Tenório e Thales', hosts: 'Vivy Tenório e Thales', options: 'Tema do dia, alô, pedir música, promoção da hora' }, done),
+        Object.assign({ time: '14h – 15h', name: 'Back To Brasil', hosts: 'Orelhinha', options: std }, air),
+        Object.assign({ time: '15h – 16h', name: 'Programação corrida', hosts: 'Orelhinha', options: std }, next),
+        Object.assign({ time: '16h – 17h', name: 'Funk-U', hosts: 'Orelhinha e DJ Tubarão', options: std }, later),
+        Object.assign({ time: '17h – 18h', name: 'Vibe FM O Dia', hosts: 'Orelhinha e DJ Nelsinho', options: std }, later),
+        Object.assign({ time: '18h – 19h', name: 'Só As Melhores', hosts: 'Orelhinha', options: std }, later),
+        Object.assign({ time: '19h – 20h', name: 'FM O Dia Retrô', hosts: 'VanDamme', options: std }, later),
+        Object.assign({ time: '20h – 00h', name: 'Programação corrida', hosts: 'VanDamme', options: std }, later)
+      ],
+      promos: [
+        { name: 'Promoção da hora — Back To Brasil', where: 'Back To Brasil · até 15h', on: true },
+        { name: 'Par de ingressos — show de Ferrugem', where: 'Funk-U · 16h às 17h', on: true },
+        { name: 'Desconto em ingressos', where: 'FM O Dia Raiz · todos os programas', on: true },
+        { name: 'Kit FM O Dia', where: 'Vibe FM O Dia · 17h às 18h', on: false }
+      ]
+    };
+  }
+}
+</script>
+<script>DC.mount();</script>
+</body>
+</html>

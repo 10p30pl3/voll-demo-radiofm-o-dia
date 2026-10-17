@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promoções e sorteios — Portal Operacional FM O Dia</title>
+<link rel="icon" href="assets/logo-fmodia.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&amp;family=Barlow+Condensed:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#B8003A}a:hover{color:#8A002B}
+h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01em}
+</style>
+<style>#app button:focus-visible,#app a:focus-visible,#app input:focus-visible,#app select:focus-visible{outline:3px solid #007CC2;outline-offset:2px}</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="dc-template">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #FBF8EF; color: #2A2228; font-family: 'Barlow', 'Helvetica Neue', sans-serif;">
+
+  <nav aria-label="Menu do portal" style="flex: 1 1 230px; max-width: 250px; box-sizing: border-box; padding: 24px 16px 32px; background: #D20143; color: #FFFFFF; display: flex; flex-direction: column; gap: 4px;">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 4px 24px;">
+      <img src="assets/logo-fmodia.png" alt="FM O Dia 100,5 — Alegria que irradia" style="width: 206px; height: auto; display: block;">
+      <span style="padding: 4px 10px; border-radius: 6px; background: #FEF9C0; color: #B8003A; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">Portal Operacional</span>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="7">
+      <a href="{{n.href}}" style="display: flex; align-items: center; gap: 12px; min-height: 46px; padding: 0 14px; border-radius: 10px; text-decoration: none; color: {{n.fg}}; background: {{n.bg}}; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 18px; font-weight: {{n.fw}};">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.icon}}"></path></svg>
+        <span>{{n.label}}</span>
+      </a>
+    </sc-for>
+  </nav>
+
+  <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column;">
+    <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 16px 32px; background: #FFFFFF; border-bottom: 1px solid #EFE8D8;">
+      <div style="display: flex; align-items: center; gap: 12px; flex: 1 1 auto;">
+        <span style="font-size: 19px; font-weight: 700;">Portal Operacional FM O Dia</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #FDE6EC; color: #B8003A; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #D20143;"></span>AO VIVO</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; flex: 0 1 380px; min-height: 44px; padding: 0 16px; border-radius: 12px; background: #F5F0E3;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6168" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16M21 21l-4.3-4.3"></path></svg>
+        <label for="busca" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);">Buscar</label>
+        <input id="busca" type="search" placeholder="Buscar ouvintes, mensagens, pedidos de música, promoções…" style="flex: 1 1 auto; min-width: 0; border: none; background: transparent; font: inherit; font-size: 13px; color: #2A2228;">
+      </div>
+      <button type="button" aria-label="Notificações, 3 novas" style="position: relative; width: 44px; height: 44px; border: none; border-radius: 12px; background: transparent; color: #2A2228; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+        <span style="position: absolute; top: 6px; right: 6px; min-width: 16px; height: 16px; border-radius: 8px; background: #D20143; color: #FFFFFF; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</span>
+      </button>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #007CC2; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">CM</div>
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 14px; font-weight: 600;">Carla Mendes</span>
+          <span style="font-size: 12px; color: #6B6168;">Operação | FM O Dia</span>
+        </div>
+      </div>
+    </header>
+
+    <main style="box-sizing: border-box; padding: 28px 32px 36px; display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h1 style="margin: 0; font-size: 30px; font-weight: 700;">Promoções e Sorteios</h1>
+          <span style="font-size: 15px; color: #6B6168;">Várias promoções ao mesmo tempo, com um ou mais ganhadores e sorteio entre os participantes elegíveis.</span>
+        </div>
+        <button type="button" style="min-height: 46px; padding: 0 20px; border: none; border-radius: 12px; background: #D20143; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Nova promoção</button>
+      </div>
+
+      <section aria-label="Resumo das promoções" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+        <sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+          <div style="display: flex; gap: 14px; padding: 18px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05); min-width: 0;">
+            <div style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 14px; background: {{s.tileBg}}; color: {{s.tileFg}}; display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.icon}}"></path></svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+              <span style="font-size: 13px; font-weight: 600;">{{s.label}}</span>
+              <span style="font-size: 28px; font-weight: 700;">{{s.value}}</span>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+
+      <section style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start;">
+        <div style="flex: 2 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+          <sc-for list="{{promos}}" as="p" hint-placeholder-count="5">
+            <button type="button" onClick="{{p.pick}}" style="text-align: left; display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 12px; border: 1px solid {{p.border}}; background: {{p.rowBg}}; font: inherit; color: #2A2228; cursor: pointer;">
+              <span style="display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; width: 100%;">
+                <span style="font-size: 14px; font-weight: 600;">{{p.name}}</span>
+                <span style="flex-shrink: 0; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; background: {{p.badgeBg}}; color: {{p.badgeFg}};">{{p.status}}</span>
+              </span>
+              <span style="font-size: 12px; color: #6B6168;">{{p.where}}</span>
+              <span style="font-size: 13px; color: #4A4247;"><span style="font-weight: 700; color: #2A2228;">{{p.count}}</span> participantes · {{p.prize}}</span>
+              <sc-if value="{{p.tag}}" hint-placeholder-val="{{false}}"><span style="align-self: flex-start; padding: 2px 8px; border-radius: 6px; background: #FEF9C0; color: #B8003A; font-size: 11px; font-weight: 700;">{{p.tag}}</span></sc-if>
+            </button>
+          </sc-for>
+        </div>
+
+        <article style="flex: 3 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 18px; padding: 24px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <h2 style="margin: 0; font-size: 20px; font-weight: 700;">{{cur.name}}</h2>
+              <span style="font-size: 14px; color: #6B6168;">{{cur.where}} · {{cur.count}} participantes · {{cur.prize}}</span>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button type="button" style="min-height: 46px; padding: 0 18px; border: 1px solid #E5DCC8; border-radius: 12px; background: #FFFFFF; color: #2A2228; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Exportar CSV</button>
+              <button type="button" style="min-height: 46px; padding: 0 20px; border: none; border-radius: 12px; background: #D20143; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Exportar para sorteadores</button>
+            </div>
+          </div>
+
+          <sc-if value="{{showDraw}}" hint-placeholder-val="{{true}}">
+            <section aria-label="Sorteio" style="display: flex; flex-direction: column; gap: 16px; padding: 20px; border-radius: 14px; background: #FFF9DB; border: 1px solid #F2D27A;">
+              <div style="display: flex; flex-direction: column; gap: 4px;">
+                <h3 style="margin: 0; display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 700;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4"></path></svg>
+                  Sorteio entre elegíveis
+                </h3>
+                <span style="font-size: 13px; color: #4A4247;">Defina quem pode ganhar. O Portal sorteia ao acaso somente entre os participantes elegíveis.</span>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; gap: 14px 20px; padding: 14px 16px; border-radius: 12px; background: #FFFFFF; border: 1px solid #F2D27A;">
+                <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 260px;">
+                <span style="font-size: 13px; font-weight: 600;">Ganhadores</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                  <sc-for list="{{qtyChips}}" as="c" hint-placeholder-count="4">
+                    <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.border}}; background: {{c.bg}}; color: {{c.fg}}; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">{{c.label}}</button>
+                  </sc-for>
+                </div>
+              </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 260px;">
+                <span style="font-size: 13px; font-weight: 600;">Localidade</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                  <sc-for list="{{regionChips}}" as="c" hint-placeholder-count="4">
+                    <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.border}}; background: {{c.bg}}; color: {{c.fg}}; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">{{c.label}}</button>
+                  </sc-for>
+                </div>
+              </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 260px;">
+                <span style="font-size: 13px; font-weight: 600;">Sem ganhar há pelo menos</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                  <sc-for list="{{sinceChips}}" as="c" hint-placeholder-count="4">
+                    <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.border}}; background: {{c.bg}}; color: {{c.fg}}; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">{{c.label}}</button>
+                  </sc-for>
+                </div>
+              </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 260px;">
+                <span style="font-size: 13px; font-weight: 600;">Repetição de vencedores</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                  <sc-for list="{{repeatChips}}" as="c" hint-placeholder-count="4">
+                    <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.border}}; background: {{c.bg}}; color: {{c.fg}}; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">{{c.label}}</button>
+                  </sc-for>
+                </div>
+              </div>
+                <div style="display: flex; flex-direction: column; gap: 6px; flex: 1 1 260px;">
+                <span style="font-size: 13px; font-weight: 600;">FM O Dia Raiz</span>
+                <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                  <sc-for list="{{raizChips}}" as="c" hint-placeholder-count="4">
+                    <button type="button" onClick="{{c.pick}}" aria-pressed="{{c.pressed}}" style="min-height: 38px; padding: 0 14px; border-radius: 999px; border: 1px solid {{c.border}}; background: {{c.bg}}; color: {{c.fg}}; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">{{c.label}}</button>
+                  </sc-for>
+                </div>
+              </div>
+              </div>
+
+              <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+                <span style="font-size: 14px;"><span style="font-size: 26px; font-weight: 700; color: #B8003A;">{{eligCount}}</span> elegíveis de {{sampleCount}} participantes na amostra · <span style="color: #6B6168;">{{eligNote}}</span></span>
+                <sc-if value="{{canDraw}}" hint-placeholder-val="{{true}}">
+                  <button type="button" onClick="{{draw}}" style="min-height: 52px; padding: 0 26px; border: none; border-radius: 12px; background: #D20143; color: #FFFFFF; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 20px; font-weight: 700; letter-spacing: 0.02em; cursor: pointer;">{{drawLabel}}</button>
+                </sc-if>
+                <sc-if value="{{noPool}}" hint-placeholder-val="{{false}}">
+                  <button type="button" disabled style="min-height: 52px; padding: 0 22px; border: 1px solid #E5DCC8; border-radius: 12px; background: #F5F0E3; color: #6B6168; font: inherit; font-size: 14px; font-weight: 600; cursor: not-allowed;">Nenhum elegível com esses filtros</button>
+                </sc-if>
+              </div>
+
+              <sc-if value="{{hasWinners}}" hint-placeholder-val="{{false}}">
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                  <sc-for list="{{winners}}" as="w" hint-placeholder-count="2">
+                    <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; padding: 14px 16px; border-radius: 14px; background: #FFFFFF; border: 2px solid {{w.border}};">
+                      <div style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 50%; background: #D20143; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 20px; font-weight: 700;">{{w.pos}}º</div>
+                      <div style="flex: 1 1 220px; display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+                        <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: {{w.tagFg}};">{{w.tag}}</span>
+                        <a href="ouvinte.html" style="font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 24px; font-weight: 700; line-height: 1.1; text-decoration: none; color: #2A2228;">{{w.name}}</a>
+                        <span style="font-size: 13px; color: #4A4247;">CPF {{w.cpf}} · {{w.city}} · {{w.raizTxt}}</span>
+                      </div>
+                      <button type="button" onClick="{{w.replace}}" style="min-height: 44px; padding: 0 14px; border: 1px solid #E5DCC8; border-radius: 12px; background: #FFFFFF; color: #2A2228; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">Novo sorteio para esta vaga</button>
+                    </div>
+                  </sc-for>
+                  <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <sc-if value="{{pending}}" hint-placeholder-val="{{true}}">
+                      <button type="button" onClick="{{confirm}}" style="min-height: 46px; padding: 0 18px; border: none; border-radius: 12px; background: #157A42; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Confirmar ganhadores</button>
+                      <button type="button" onClick="{{redraw}}" style="min-height: 46px; padding: 0 16px; border: 1px solid #E5DCC8; border-radius: 12px; background: #FFFFFF; color: #2A2228; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Refazer sorteio completo</button>
+                    </sc-if>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: #4A4247;">
+                    <span style="display: flex; align-items: center; gap: 8px; font-weight: 600;">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"></path></svg>
+                      Histórico do sorteio (todo sorteio e novo sorteio fica registrado)
+                    </span>
+                    <sc-for list="{{log}}" as="l" hint-placeholder-count="2"><span>· {{l}}</span></sc-for>
+                  </div>
+                </div>
+              </sc-if>
+            </section>
+          </sc-if>
+
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; min-width: 600px; border-collapse: collapse; font-size: 14px;">
+              <thead>
+                <tr style="text-align: left; color: #6B6168; font-size: 12px;">
+                  <th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Participante</th>
+                  <th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Cidade</th>
+                  <th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Última premiação</th>
+                  <th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">FM O Dia Raiz</th>
+                  <th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Elegibilidade</th>
+                </tr>
+              </thead>
+              <tbody>
+                <sc-for list="{{people}}" as="r" hint-placeholder-count="6">
+                  <tr style="background: {{r.rowBg}};">
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0; font-weight: 600;"><a href="ouvinte.html" style="text-decoration: none;">{{r.name}}</a> <span style="font-size: 12px; font-weight: 700; color: #157A42;">{{r.mark}}</span><br><span style="font-size: 12px; font-weight: 400; color: #6B6168;">CPF {{r.cpf}}</span></td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{r.city}}</td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0; color: #4A4247;">{{r.lastTxt}}</td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;"><span style="padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: {{r.raizBg}}; color: {{r.raizFg}};">{{r.raiz}}</span></td>
+                    <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;"><span style="padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: {{r.eBg}}; color: {{r.eFg}};">{{r.eTxt}}</span></td>
+                  </tr>
+                </sc-for>
+              </tbody>
+            </table>
+          </div>
+          <span style="font-size: 12px; color: #6B6168;">A tabela mostra uma amostra de {{sampleCount}} participantes (dados fictícios).</span>
+        </article>
+      </section>
+
+      <footer style="font-size: 12px; color: #6B6168;">Tela ilustrativa — layout final definido durante o projeto. Localidade usa a cidade do cadastro do ouvinte.</footer>
+    </main>
+  </div>
+</div>
+</script>
+<script src="assets/dc-lite.js"></script>
+<script>
+var REGIONS = { 'Rio de Janeiro': 'Rio de Janeiro', 'Niterói': 'Niterói', 'São Gonçalo': 'São Gonçalo', 'Duque de Caxias': 'Baixada', 'Nova Iguaçu': 'Baixada' };
+var PEOPLE = [
+  { name: 'João Silva', cpf: '***.456.789-**', city: 'Niterói', raiz: true, last: null },
+  { name: 'Mariana Lopes', cpf: '***.112.330-**', city: 'Rio de Janeiro', raiz: false, last: 12 },
+  { name: 'Carlos Ribeiro', cpf: '***.874.051-**', city: 'São Gonçalo', raiz: true, last: 75 },
+  { name: 'Ana Paula Costa', cpf: '***.239.664-**', city: 'Duque de Caxias', raiz: false, last: null },
+  { name: 'Rafael Teixeira', cpf: '***.501.987-**', city: 'Nova Iguaçu', raiz: true, last: 20 },
+  { name: 'Patrícia Moura', cpf: '***.690.245-**', city: 'Rio de Janeiro', raiz: false, last: null },
+  { name: 'Bruno Almeida', cpf: '***.318.774-**', city: 'Rio de Janeiro', raiz: true, last: null },
+  { name: 'Fernanda Dias', cpf: '***.047.529-**', city: 'Niterói', raiz: false, last: 95 },
+  { name: 'Lucas Barbosa', cpf: '***.762.108-**', city: 'São Gonçalo', raiz: false, last: null },
+  { name: 'Juliana Freitas', cpf: '***.925.413-**', city: 'Duque de Caxias', raiz: true, last: 40 },
+  { name: 'Thiago Nunes', cpf: '***.184.630-**', city: 'Rio de Janeiro', raiz: false, last: 8 },
+  { name: 'Camila Rocha', cpf: '***.553.271-**', city: 'Nova Iguaçu', raiz: true, last: null }
+];
+var PROMOS = [
+  { name: 'Promoção da hora — Back To Brasil', where: 'Back To Brasil · 14h às 15h', count: '312', status: 'Aberta', prize: '1 ganhador', mode: 'draw', tag: '', def: { qty: 1, region: 'Todas', since: 0, norepeat: true, raiz: 'all' } },
+  { name: 'Par de ingressos — show de Ferrugem', where: 'Funk-U · 16h às 17h', count: '208', status: 'Aberta', prize: '3 ganhadores', mode: 'draw', tag: 'Preferência FM O Dia Raiz', def: { qty: 3, region: 'Todas', since: 60, norepeat: true, raiz: 'pref' } },
+  { name: 'Camarote FM O Dia Raiz', where: 'Sábado · ação especial', count: '640', status: 'Aberta', prize: '2 ganhadores', mode: 'draw', tag: 'Exclusiva FM O Dia Raiz', def: { qty: 2, region: 'Todas', since: 0, norepeat: true, raiz: 'only' } },
+  { name: 'Desconto em ingressos', where: 'FM O Dia Raiz · benefício contínuo', count: '1.204', status: 'Aberta', prize: 'sem sorteio', mode: 'none', tag: 'Exclusiva FM O Dia Raiz', def: { qty: 1, region: 'Todas', since: 0, norepeat: true, raiz: 'only' } },
+  { name: 'Kit FM O Dia', where: 'Se Liga · 06h às 09h', count: '457', status: 'Encerrada', prize: '2 ganhadores', mode: 'draw', tag: '', def: { qty: 2, region: 'Todas', since: 0, norepeat: true, raiz: 'all' } }
+];
+var BADGE = { 'Aberta': ['#E3F5EA', '#157A42'], 'Encerrada': ['#F5F0E3', '#4A4247'] };
+function hhmm() { var d = new Date(); return [d.getHours(), d.getMinutes()].map(function (x) { return String(x).padStart(2, '0'); }).join(':'); }
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sel: 0, cfg: {},
+      win: { 4: { list: [{ idx: 3, ok: true }, { idx: 8, ok: true }], used: [3, 8], log: ['Sorteio às 09:00 por Carla Mendes — 2 ganhadores confirmados.'] } }
+    };
+  }
+  cfgOf(i) { return Object.assign({}, PROMOS[i].def, this.state.cfg[i] || {}); }
+  winOf(i) { return this.state.win[i] || { list: [], used: [], log: [] }; }
+  eligibility(i) {
+    var c = this.cfgOf(i), w = this.winOf(i);
+    return PEOPLE.map(function (p, k) {
+      var why = '';
+      if (c.region !== 'Todas' && REGIONS[p.city] !== c.region) why = 'Fora da localidade';
+      else if (c.raiz === 'only' && !p.raiz) why = 'Não é Raiz';
+      else if (c.since && p.last !== null && p.last < c.since) why = 'Ganhou há ' + p.last + ' dias';
+      else if (c.norepeat && w.used.indexOf(k) >= 0) why = 'Já sorteado aqui';
+      return { ok: !why, why: why };
+    });
+  }
+  pick(pool, c, n) {
+    var out = [], bag = pool.slice();
+    while (out.length < n && bag.length) {
+      var weights = bag.map(function (k) { return c.raiz === 'pref' && PEOPLE[k].raiz ? 2 : 1; });
+      var r = Math.random() * weights.reduce(function (a, b) { return a + b; }, 0), j = 0;
+      while (r >= weights[j]) { r -= weights[j]; j++; }
+      out.push(bag[j]); bag.splice(j, 1);
+    }
+    return out;
+  }
+  describe(c) {
+    var t = [c.qty + (c.qty > 1 ? ' ganhadores' : ' ganhador')];
+    if (c.region !== 'Todas') t.push(c.region);
+    if (c.since) t.push('sem prêmio há ' + c.since + '+ dias');
+    t.push(c.norepeat ? 'sem repetir vencedores' : 'vencedores podem repetir');
+    if (c.raiz === 'only') t.push('somente Raiz'); else if (c.raiz === 'pref') t.push('preferência Raiz');
+    return t.join(', ');
+  }
+  renderVals() {
+    var self = this, sel = this.state.sel;
+    var I = {
+      home: 'M3 11l9-7 9 7M5 10v10h14V10',
+      wave: 'M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4',
+      users: 'M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 20v-2a4 4 0 0 0-3-3.87M16 2.13a4 4 0 0 1 0 7.75',
+      cal: 'M4 5h16v16H4zM4 10h16M8 3v4M16 3v4',
+      gift: 'M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8C10 4 7 4 7 6s3 2 5 2c2 0 5 0 5-2s-3-2-5 2',
+      trophy: 'M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4',
+      file: 'M14 3H6v18h12V7zM14 3v4h4M9 13h6M9 17h6'
+    };
+    var active = 'Promoções e sorteios';
+    var navDefs = [['Painel operacional', I.home, 'index.html'], ['Aprovação de mensagens', I.wave, 'aprovacao.html'], ['Ouvintes', I.users, 'ouvintes.html'], ['Grade e assunto', I.cal, 'grade.html'], ['Promoções e sorteios', I.gift, 'promocoes.html'], ['FM O Dia Raiz', 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z', 'fmdiaraiz.html'], ['Publicidade', 'M3 11v3a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14', 'publicidade.html']];
+    var nav = navDefs.map(function (d) {
+      var on = d[0] === active;
+      return { label: d[0], icon: d[1], href: d[2], fg: on ? '#B8003A' : '#FFFFFF', bg: on ? '#FEF9C0' : 'transparent', fw: on ? 700 : 600 };
+    });
+
+    var cur = PROMOS[sel], c = this.cfgOf(sel), w = this.winOf(sel), el = this.eligibility(sel);
+    var setC = function (patch) { var all = Object.assign({}, self.state.cfg); all[sel] = Object.assign({}, c, patch); self.setState({ cfg: all }); };
+    var setW = function (v) { var all = Object.assign({}, self.state.win); all[sel] = v; self.setState({ win: all }); };
+    var chip = function (label, on, fn) { return { label: label, pressed: on ? 'true' : 'false', bg: on ? '#D20143' : '#FFFFFF', fg: on ? '#FFFFFF' : '#2A2228', border: on ? '#D20143' : '#E5DCC8', pick: fn }; };
+    var locked = w.list.length > 0;
+    var guard = function (fn) { return function () { if (!locked) fn(); }; };
+
+    var promos = PROMOS.map(function (p, i) {
+      var on = i === sel, b = BADGE[p.status];
+      return Object.assign({}, p, { badgeBg: b[0], badgeFg: b[1], rowBg: on ? '#FFF9DB' : '#FFFFFF', border: on ? '#F2D27A' : '#F4EEE0', pick: function () { self.setState({ sel: i }); } });
+    });
+
+    var winners = w.list.map(function (x, pos) {
+      var p = PEOPLE[x.idx];
+      return {
+        pos: pos + 1, name: p.name, cpf: p.cpf, city: p.city, raizTxt: p.raiz ? 'membro FM O Dia Raiz' : 'não é Raiz',
+        tag: x.ok ? 'GANHADOR CONFIRMADO' : 'SORTEADO · AGUARDANDO CONFIRMAÇÃO',
+        tagFg: x.ok ? '#157A42' : '#B8003A', border: x.ok ? '#157A42' : '#D20143',
+        replace: function () {
+          var c2 = self.cfgOf(sel), el2 = self.eligibility(sel), cur2 = self.winOf(sel);
+          var inList = cur2.list.map(function (y) { return y.idx; });
+          var pool = []; el2.forEach(function (e, k) { if (e.ok && inList.indexOf(k) < 0) pool.push(k); });
+          var np = self.pick(pool, c2, 1);
+          if (!np.length) return;
+          var list = cur2.list.slice(); list[pos] = { idx: np[0], ok: false };
+          setW({ list: list, used: cur2.used.concat(np), log: cur2.log.concat(hhmm() + ' — novo sorteio da vaga ' + (pos + 1) + ': ' + p.name + ' substituído por ' + PEOPLE[np[0]].name + '.') });
+        }
+      };
+    });
+
+    var inList = w.list.map(function (y) { return y.idx; });
+    var eligCount = el.filter(function (e) { return e.ok; }).length;
+    var pool = []; el.forEach(function (e, k) { if (e.ok && inList.indexOf(k) < 0) pool.push(k); });
+    var doDraw = function () {
+      var cc = self.cfgOf(sel), cw = self.winOf(sel);
+      var picks = self.pick(pool, cc, cc.qty);
+      setW({ list: picks.map(function (k) { return { idx: k, ok: false }; }), used: cw.used.concat(picks), log: cw.log.concat(hhmm() + ' — sorteio por Carla Mendes (' + self.describe(cc) + '): ' + picks.map(function (k) { return PEOPLE[k].name; }).join(', ') + '.') });
+    };
+    var regions = ['Todas', 'Rio de Janeiro', 'Niterói', 'São Gonçalo', 'Baixada'];
+    var sinceOpts = [[0, 'Sem restrição'], [30, '30 dias'], [60, '60 dias'], [90, '90 dias']];
+    var raizOpts = [['all', 'Todos'], ['only', 'Somente Raiz'], ['pref', 'Preferência Raiz']];
+
+    return {
+      nav: nav,
+      stats: [
+        { label: 'Promoções abertas', value: '4', icon: I.gift, tileBg: '#FDE6EC', tileFg: '#D20143' },
+        { label: 'Participações hoje', value: '1.160', icon: I.users, tileBg: '#E3F1FA', tileFg: '#007CC2' },
+        { label: 'Ganhadores hoje', value: '5', icon: I.trophy, tileBg: '#FFF0E0', tileFg: '#C26A00' },
+        { label: 'Listas exportadas', value: '1', icon: I.file, tileBg: '#E3F5EA', tileFg: '#157A42' }
+      ],
+      promos: promos, cur: cur,
+      showDraw: cur.mode === 'draw',
+      qtyChips: [1, 2, 3, 5].map(function (n) { return chip(String(n), c.qty === n, guard(function () { setC({ qty: n }); })); }),
+      regionChips: regions.map(function (r) { return chip(r, c.region === r, guard(function () { setC({ region: r }); })); }),
+      sinceChips: sinceOpts.map(function (o) { return chip(o[1], c.since === o[0], guard(function () { setC({ since: o[0] }); })); }),
+      repeatChips: [[true, 'Não repetir vencedores'], [false, 'Permitir repetição']].map(function (o) { return chip(o[1], c.norepeat === o[0], guard(function () { setC({ norepeat: o[0] }); })); }),
+      raizChips: raizOpts.map(function (o) { return chip(o[1], c.raiz === o[0], guard(function () { setC({ raiz: o[0] }); })); }),
+      eligCount: eligCount, sampleCount: PEOPLE.length,
+      eligNote: c.raiz === 'pref' ? 'membros Raiz têm o dobro de chance' : (locked ? 'filtros travados após o sorteio' : 'ajuste os filtros acima'),
+      canDraw: !locked && pool.length > 0 && cur.status === 'Aberta',
+      noPool: !locked && pool.length === 0,
+      drawLabel: 'Sortear ' + Math.min(c.qty, pool.length) + (Math.min(c.qty, pool.length) > 1 ? ' ganhadores' : ' ganhador'),
+      draw: doDraw,
+      hasWinners: locked, winners: winners, log: w.log,
+      pending: w.list.some(function (x) { return !x.ok; }),
+      confirm: function () { var cw = self.winOf(sel); setW(Object.assign({}, cw, { list: cw.list.map(function (x) { return { idx: x.idx, ok: true }; }), log: cw.log.concat(hhmm() + ' — ganhadores confirmados por Carla Mendes.') })); },
+      redraw: function () { var cw = self.winOf(sel), cc = self.cfgOf(sel); var el3 = self.eligibility(sel), p3 = []; el3.forEach(function (e, k) { if (e.ok) p3.push(k); }); var picks = self.pick(p3, cc, cc.qty); setW({ list: picks.map(function (k) { return { idx: k, ok: false }; }), used: cw.used.concat(picks), log: cw.log.concat(hhmm() + ' — sorteio completo refeito: ' + picks.map(function (k) { return PEOPLE[k].name; }).join(', ') + '.') }); },
+      people: PEOPLE.map(function (p, k) {
+        var hit = inList.indexOf(k); var e = el[k];
+        var lw = hit >= 0 ? w.list[hit] : null;
+        var cant = hit < 0 && !e.ok;
+        return {
+          name: p.name, cpf: p.cpf, city: p.city,
+          lastTxt: p.last === null ? 'Nunca premiado' : 'há ' + p.last + ' dias',
+          raiz: p.raiz ? 'Sim' : 'Não', raizBg: p.raiz ? '#FDE6EC' : '#F5F0E3', raizFg: p.raiz ? '#B8003A' : '#4A4247',
+          rowBg: hit >= 0 ? '#FFF9DB' : 'transparent', mark: lw ? (lw.ok ? '· ganhador' : '· sorteado') : '',
+          eTxt: hit >= 0 ? 'Sorteado' : (e.ok ? 'Elegível' : e.why),
+          eBg: hit >= 0 ? '#FEF9C0' : (e.ok ? '#E3F5EA' : '#F5F0E3'), eFg: hit >= 0 ? '#B8003A' : (e.ok ? '#157A42' : '#6B6168')
+        };
+      })
+    };
+  }
+}
+</script>
+<script>DC.mount();</script>
+</body>
+</html>

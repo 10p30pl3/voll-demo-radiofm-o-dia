@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aprovação de mensagens — Portal Operacional FM O Dia</title>
+<link rel="icon" href="assets/logo-fmodia.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&amp;family=Barlow+Condensed:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#B8003A}a:hover{color:#8A002B}
+h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01em}
+</style>
+<style>#app button:focus-visible,#app a:focus-visible,#app input:focus-visible,#app select:focus-visible{outline:3px solid #007CC2;outline-offset:2px}</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="dc-template">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #FBF8EF; color: #2A2228; font-family: 'Barlow', 'Helvetica Neue', sans-serif;">
+
+  <nav aria-label="Menu do portal" style="flex: 1 1 230px; max-width: 250px; box-sizing: border-box; padding: 24px 16px 32px; background: #D20143; color: #FFFFFF; display: flex; flex-direction: column; gap: 4px;">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 4px 24px;">
+      <img src="assets/logo-fmodia.png" alt="FM O Dia 100,5 — Alegria que irradia" style="width: 206px; height: auto; display: block;">
+      <span style="padding: 4px 10px; border-radius: 6px; background: #FEF9C0; color: #B8003A; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">Portal Operacional</span>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="7">
+      <a href="{{n.href}}" style="display: flex; align-items: center; gap: 12px; min-height: 46px; padding: 0 14px; border-radius: 10px; text-decoration: none; color: {{n.fg}}; background: {{n.bg}}; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 18px; font-weight: {{n.fw}};">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.icon}}"></path></svg>
+        <span>{{n.label}}</span>
+      </a>
+    </sc-for>
+  </nav>
+
+  <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column;">
+    <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 16px 32px; background: #FFFFFF; border-bottom: 1px solid #EFE8D8;">
+      <div style="display: flex; align-items: center; gap: 12px; flex: 1 1 auto;">
+        <span style="font-size: 19px; font-weight: 700;">Portal Operacional FM O Dia</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #FDE6EC; color: #B8003A; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #D20143;"></span>AO VIVO</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; flex: 0 1 380px; min-height: 44px; padding: 0 16px; border-radius: 12px; background: #F5F0E3;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6168" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16M21 21l-4.3-4.3"></path></svg>
+        <label for="busca" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);">Buscar</label>
+        <input id="busca" type="search" placeholder="Buscar ouvintes, mensagens, pedidos de música, promoções…" style="flex: 1 1 auto; min-width: 0; border: none; background: transparent; font: inherit; font-size: 13px; color: #2A2228;">
+      </div>
+      <button type="button" aria-label="Notificações, 3 novas" style="position: relative; width: 44px; height: 44px; border: none; border-radius: 12px; background: transparent; color: #2A2228; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+        <span style="position: absolute; top: 6px; right: 6px; min-width: 16px; height: 16px; border-radius: 8px; background: #D20143; color: #FFFFFF; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</span>
+      </button>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #007CC2; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">CM</div>
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 14px; font-weight: 600;">Carla Mendes</span>
+          <span style="font-size: 12px; color: #6B6168;">Operação | FM O Dia</span>
+        </div>
+      </div>
+    </header>
+
+    <main style="box-sizing: border-box; padding: 28px 32px 36px; display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px;">
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <h1 style="margin: 0; font-size: 30px; font-weight: 700;">Fila de aprovação de mensagens</h1>
+          <span style="font-size: 15px; color: #6B6168;">O ouvinte participa por áudio ou texto no WhatsApp. A IA transcreve os áudios e classifica tudo; nada vai ao ar sem aprovação da equipe.</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <label for="programa" style="font-size: 13px; font-weight: 600;">Programa</label>
+          <select id="programa" style="min-height: 44px; padding: 0 12px; border: 1px solid #E5DCC8; border-radius: 10px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600;"><option>Back To Brasil (no ar)</option><option>Todos os programas</option></select>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+        <div role="group" aria-label="Filtrar por classificação da IA" style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <sc-for list="{{filters}}" as="fl" hint-placeholder-count="5">
+            <button type="button" onClick="{{fl.pick}}" style="min-height: 42px; padding: 0 16px; border-radius: 999px; border: 1px solid {{fl.border}}; background: {{fl.bg}}; color: {{fl.fg}}; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">{{fl.label}} · {{fl.count}}</button>
+          </sc-for>
+        </div>
+        <div role="group" aria-label="Filtrar por formato" style="display: flex; padding: 4px; border-radius: 12px; background: #FFFFFF; border: 1px solid #EFE8D8;">
+          <sc-for list="{{formats}}" as="fm" hint-placeholder-count="3">
+            <button type="button" onClick="{{fm.pick}}" style="min-height: 38px; padding: 0 16px; border: none; border-radius: 9px; background: {{fm.bg}}; color: {{fm.fg}}; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{fm.icon}}"></path></svg>
+              {{fm.label}} · {{fm.count}}
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <section style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start;">
+        <div style="flex: 2 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 8px; padding: 12px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+          <sc-for list="{{queue}}" as="q" hint-placeholder-count="6">
+            <button type="button" onClick="{{q.pick}}" style="text-align: left; display: flex; gap: 12px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; border: 1px solid {{q.border}}; background: {{q.rowBg}}; font: inherit; color: #2A2228; cursor: pointer;">
+              <span style="width: 38px; height: 38px; flex-shrink: 0; border-radius: 10px; background: {{q.bg}}; color: {{q.fg}}; display: flex; align-items: center; justify-content: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{q.icon}}"></path></svg>
+              </span>
+              <span style="flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 4px;">
+                <span style="display: flex; justify-content: space-between; gap: 8px;"><span style="font-size: 13px; font-weight: 600;">{{q.name}} · {{q.kind}} <span style="font-weight: 500; color: #6B6168;">({{q.fmt}})</span></span><span style="font-size: 12px; color: #6B6168;">{{q.time}}</span></span>
+                <span style="font-size: 12px; color: #4A4247;">{{q.summary}}</span>
+                <span style="align-self: flex-start; padding: 2px 9px; border-radius: 999px; font-size: 11px; font-weight: 700; background: {{q.bg}}; color: {{q.fg}};">{{q.state}}</span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+
+        <article style="flex: 3 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 18px; padding: 24px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap;">
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <h2 style="margin: 0; font-size: 20px; font-weight: 700;">{{cur.name}} · {{cur.kind}}</h2>
+              <a href="ouvinte.html" style="font-size: 13px; font-weight: 600; text-decoration: none;">Ver perfil do ouvinte →</a>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <span style="padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: #F5F0E3; color: #2A2228;">{{cur.fmt}}</span>
+              <span style="padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: {{cur.bg}}; color: {{cur.fg}};">IA: {{cur.state}}</span>
+            </div>
+          </div>
+
+          <sc-if value="{{isAudio}}" hint-placeholder-val="{{true}}">
+          <div style="display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 14px; background: #EEF6FC;">
+            <button type="button" aria-label="Ouvir áudio" style="width: 44px; height: 44px; flex-shrink: 0; border: none; border-radius: 50%; background: #D20143; color: #FFFFFF; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="M8 5l11 7-11 7z"></path></svg>
+            </button>
+            <div style="flex: 1 1 auto; height: 36px; display: flex; align-items: center; gap: 3px; min-width: 0;">
+              <sc-for list="{{wave}}" as="w" hint-placeholder-count="48">
+                <span style="flex: 1 1 0; height: {{w.h}}px; border-radius: 2px; background: {{w.c}};"></span>
+              </sc-for>
+            </div>
+            <span style="font-size: 13px; font-weight: 600; color: #4A4247;">{{cur.dur}}</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 6px;">
+            <h3 style="margin: 0; font-size: 14px; font-weight: 600;">Transcrição do áudio</h3>
+            <p style="margin: 0; font-size: 15px; line-height: 1.6;">{{cur.transcript}}</p>
+          </div>
+          </sc-if>
+          <sc-if value="{{isText}}" hint-placeholder-val="{{false}}">
+            <div style="display: flex; flex-direction: column; gap: 8px;">
+              <h3 style="margin: 0; font-size: 14px; font-weight: 600;">Mensagem de texto do ouvinte</h3>
+              <div style="align-self: flex-start; max-width: 560px; padding: 14px 16px; border-radius: 4px 16px 16px 16px; background: #EEF6FC; border: 1px solid #CFE4F3;">
+                <p style="margin: 0; font-size: 15px; line-height: 1.6;">{{cur.transcript}}</p>
+                <span style="display: block; padding-top: 6px; font-size: 12px; color: #6B6168; text-align: right;">WhatsApp · {{cur.time}}</span>
+              </div>
+            </div>
+          </sc-if>
+          <div style="display: flex; flex-wrap: wrap; gap: 12px;">
+            <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 12px; background: #FBF8EF;">
+              <h3 style="margin: 0; font-size: 13px; font-weight: 600; color: #005E94;">Resumo pela IA</h3>
+              <p style="margin: 0; font-size: 13px; color: #4A4247;">{{cur.summary}}</p>
+            </div>
+            <div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 6px; padding: 14px 16px; border-radius: 12px; background: #FBF8EF;">
+              <h3 style="margin: 0; font-size: 13px; font-weight: 600; color: #005E94;">Por que a IA classificou assim</h3>
+              <p style="margin: 0; font-size: 13px; color: #4A4247;">{{cur.reason}}</p>
+            </div>
+          </div>
+
+          <fieldset style="margin: 0; padding: 16px; border: 1px solid #EFE8D8; border-radius: 14px; display: flex; flex-direction: column; gap: 8px;">
+            <legend style="padding: 0 6px; font-size: 14px; font-weight: 600;">Aviso ao ouvinte se aprovado</legend>
+            <sc-for list="{{notices}}" as="n" hint-placeholder-count="3">
+              <label style="display: flex; align-items: center; gap: 10px; min-height: 40px; font-size: 14px;">
+                <input type="radio" name="aviso" checked="{{n.on}}" style="width: 18px; height: 18px; accent-color: #D20143;">
+                <span>{{n.text}}</span>
+              </label>
+            </sc-for>
+          </fieldset>
+
+          <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px;">
+            <span style="display: flex; align-items: center; gap: 8px; font-size: 13px; color: #6B6168;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 7v5l3 2"></path></svg>
+              Uso no ar até 15h00 · depois o ouvinte recebe a mensagem de encerramento
+            </span>
+            <div style="display: flex; gap: 8px;">
+              <button type="button" style="min-height: 46px; padding: 0 20px; border: 1px solid #E5DCC8; border-radius: 12px; background: #FFFFFF; color: #2A2228; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Reprovar</button>
+              <button type="button" style="min-height: 46px; padding: 0 22px; border: none; border-radius: 12px; background: #D20143; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Aprovar e avisar</button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <footer style="font-size: 12px; color: #6B6168;">Tela ilustrativa — layout final definido durante o projeto.</footer>
+    </main>
+  </div>
+</div>
+</script>
+<script src="assets/dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { sel: 1, filter: 'todos', fmt: 'todos' };
+  }
+  renderVals() {
+    var self = this;
+    var I = {
+      home: 'M3 11l9-7 9 7M5 10v10h14V10',
+      link: 'M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1',
+      wave: 'M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4',
+      users: 'M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 20v-2a4 4 0 0 0-3-3.87M16 2.13a4 4 0 0 1 0 7.75',
+      cal: 'M4 5h16v16H4zM4 10h16M8 3v4M16 3v4',
+      gift: 'M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8C10 4 7 4 7 6s3 2 5 2c2 0 5 0 5-2s-3-2-5 2',
+      trophy: 'M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4',
+      gear: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1'
+    };
+    var active = 'Aprovação de mensagens';
+    var navDefs = [['Painel operacional', I.home, 'index.html'], ['Aprovação de mensagens', I.wave, 'aprovacao.html'], ['Ouvintes', I.users, 'ouvintes.html'], ['Grade e assunto', I.cal, 'grade.html'], ['Promoções e sorteios', I.gift, 'promocoes.html'], ['FM O Dia Raiz', 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z', 'fmdiaraiz.html'], ['Publicidade', 'M3 11v3a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14', 'publicidade.html']];
+    var nav = navDefs.map(function (d) {
+      var on = d[0] === active;
+      return { label: d[0], icon: d[1], href: d[2], fg: on ? '#B8003A' : '#FFFFFF', bg: on ? '#FEF9C0' : 'transparent', fw: on ? 700 : 600 };
+    });
+    var S = {
+      apto: { state: 'Apto', bg: '#E3F5EA', fg: '#157A42' },
+      analise: { state: 'Em análise', bg: '#E3F1FA', fg: '#005E94' },
+      fora: { state: 'Fora do assunto', bg: '#FFF0E0', fg: '#9A5300' },
+      nao: { state: 'Não apto', bg: '#FDE4E4', fg: '#A11B1B' },
+      proc: { state: 'Transcrevendo…', bg: '#F5F0E3', fg: '#4A4247' }
+    };
+    var AU = { media: 'audio', icon: 'M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4' };
+    var TX = { media: 'texto', icon: 'M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z', dur: '' };
+    var items = [
+      Object.assign({ key: 'proc', name: 'Tatiane R.', kind: 'Alô Alô', time: '14:28', dur: '0:17', summary: 'Áudio recebido; a IA está transcrevendo.', transcript: 'A transcrição aparece aqui em alguns segundos. O áudio já pode ser ouvido.', reason: 'Classificação disponível assim que a transcrição terminar.' }, S.proc, AU),
+      Object.assign({ key: 'apto', name: 'Rosângela F.', kind: '#TBTdoOuvinte', time: '14:27', dur: '0:28', summary: 'Conheceu o marido num baile ao som de "Caju Pra Baixo"', transcript: 'Oi, Orelhinha! Aqui é a Rosângela, de Campo Grande. Meu TBT é "Caju Pra Baixo": foi tocando ela que eu conheci meu marido num baile em 1998. Manda um salve pro pessoal de Campo Grande!', reason: 'História de música marcante, alinhada ao assunto #TBTdoOuvinte; linguagem adequada.' }, S.apto, AU),
+      Object.assign({ key: 'apto', name: 'Kátia L.', kind: 'Alô Alô', time: '14:26', summary: 'Alô para a mãe, que faz 80 anos', transcript: 'Orelhinha, manda um beijo pra minha mãe, Dona Cida, que faz 80 anos hoje! Ela ouve vocês todo dia na cozinha. Te amo, mãe!', reason: 'Alô em texto, opção válida do programa; linguagem adequada. O locutor lê no ar.' }, S.apto, TX),
+      Object.assign({ key: 'analise', name: 'Bruno A.', kind: 'Alô Alô', time: '14:25', dur: '0:14', summary: 'Alô para a equipe da obra no Méier', transcript: 'Fala, Orelhinha! Manda um alô pra galera da obra lá no Méier, que tá trabalhando ouvindo vocês!', reason: 'Alô não é o assunto do momento, mas é uma opção válida do programa; aguarda a equipe.' }, S.analise, AU),
+      Object.assign({ key: 'apto', name: 'Diego M.', kind: '#TBTdoOuvinte', time: '14:23', dur: '0:33', summary: 'Primeiro show que viu com o pai, em 2005', transcript: 'Meu TBT é o primeiro show que eu fui com meu pai, em 2005. Toca aquela do Revelação pra ele, que hoje faz 70 anos!', reason: 'Lembrança musical dentro do tema, com pedido de música identificado.' }, S.apto, AU),
+      Object.assign({ key: 'apto', name: 'Wellington S.', kind: '#TBTdoOuvinte', time: '14:22', summary: 'Música que tocava no rádio do pai, nos anos 90', transcript: 'Meu TBT é "Deixa Acontecer", do Grupo Revelação. Tocava no rádio do carro do meu pai todo domingo indo pra praia em Sepetiba.', reason: 'Lembrança musical alinhada ao assunto; pedido de música identificado.' }, S.apto, TX),
+      Object.assign({ key: 'fora', name: 'Luciana P.', kind: 'Mensagem livre', time: '14:21', dur: '0:19', summary: 'Reclamação sobre o sinal da rádio em Itaguaí', transcript: 'Gente, o sinal da rádio aqui em Itaguaí tá falhando desde ontem, vocês podem ver isso?', reason: 'Não trata do assunto do momento; parece demanda técnica para a equipe.' }, S.fora, AU),
+      Object.assign({ key: 'nao', name: 'Anônimo', kind: 'Mensagem livre', time: '14:19', dur: '0:09', summary: 'Conteúdo inadequado para veiculação', transcript: '[Trecho omitido pelo portal por conter linguagem ofensiva]', reason: 'Linguagem ofensiva identificada na transcrição.' }, S.nao, AU),
+      Object.assign({ key: 'apto', name: 'Marcos V.', kind: '#TBTdoOuvinte', time: '14:17', dur: '0:22', summary: 'Música do casamento, há 20 anos', transcript: 'Boa tarde! Meu TBT é a música do meu casamento, há 20 anos. Toca pra mim e pra Sandra!', reason: 'Dentro do tema; pedido de música e alô identificados.' }, S.apto, AU)
+    ];
+    items = items.map(function (it) { return Object.assign({}, it, { fmt: it.media === 'audio' ? 'Áudio ' + it.dur : 'Texto' }); });
+    var byFmt = function (it) { return self.state.fmt === 'todos' || it.media === self.state.fmt; };
+    var fcounts = { todos: items.length, audio: 0, texto: 0 };
+    items.forEach(function (it) { fcounts[it.media] += 1; });
+    var formats = [['todos', 'Todos', 'M4 6h16M4 12h16M4 18h16'], ['audio', 'Áudio', AU.icon], ['texto', 'Texto', TX.icon]].map(function (d) {
+      var on = self.state.fmt === d[0];
+      return { label: d[1], icon: d[2], count: fcounts[d[0]], bg: on ? '#2A2228' : 'transparent', fg: on ? '#FFFFFF' : '#2A2228', pick: function () { self.setState({ fmt: d[0] }); } };
+    });
+    var counts = { todos: 0, apto: 0, analise: 0, fora: 0, nao: 0, proc: 0 };
+    items.filter(byFmt).forEach(function (it) { counts.todos += 1; counts[it.key] += 1; });
+    var defs = [['todos', 'Todos'], ['apto', 'Apto'], ['analise', 'Em análise'], ['fora', 'Fora do assunto'], ['nao', 'Não apto']];
+    var filters = defs.map(function (d) {
+      var on = self.state.filter === d[0];
+      return { label: d[1], count: counts[d[0]], border: on ? '#B8003A' : '#E5DCC8', bg: on ? '#B8003A' : '#FFFFFF', fg: on ? '#FFFFFF' : '#2A2228', pick: function () { self.setState({ filter: d[0] }); } };
+    });
+    var shown = items.map(function (it, i) { return Object.assign({ idx: i }, it); }).filter(byFmt).filter(function (it) { return self.state.filter === 'todos' || it.key === self.state.filter; });
+    var queue = shown.map(function (it) {
+      var on = it.idx === self.state.sel;
+      return Object.assign({}, it, { rowBg: on ? '#FFF9DB' : '#FFFFFF', border: on ? '#F2D27A' : '#F4EEE0', pick: function () { self.setState({ sel: it.idx }); } });
+    });
+    var selIdx = shown.some(function (it) { return it.idx === self.state.sel; }) ? self.state.sel : (shown.length ? shown[0].idx : self.state.sel);
+    var cur = items[selIdx];
+    queue = queue.map(function (q) { var on = q.idx === selIdx; return Object.assign({}, q, { rowBg: on ? '#FFF9DB' : '#FFFFFF', border: on ? '#F2D27A' : '#F4EEE0' }); });
+    var wave = [];
+    for (var i = 0; i < 48; i++) { wave.push({ h: 6 + Math.round(Math.abs(Math.sin(i * 0.7) * 22 + Math.cos(i * 1.9) * 6)), c: i < 18 ? '#D20143' : '#9CCBEA' }); }
+    return {
+      nav: nav,
+      filters: filters,
+      queue: queue,
+      cur: cur,
+      formats: formats,
+      isAudio: cur.media === 'audio',
+      isText: cur.media === 'texto',
+      wave: wave,
+      notices: [
+        { text: 'Sua mensagem foi aprovada e pode ir ao ar no Back To Brasil. Fica ligado!', on: true },
+        { text: 'Recebemos sua mensagem e ela entrou na programação de hoje. Valeu!', on: false },
+        { text: 'Seu recado foi aprovado e será lido pelos locutores.', on: false }
+      ]
+    };
+  }
+}
+</script>
+<script>DC.mount();</script>
+</body>
+</html>

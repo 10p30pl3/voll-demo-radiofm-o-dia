@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Perfil do ouvinte — Portal Operacional FM O Dia</title>
+<link rel="icon" href="assets/logo-fmodia.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&amp;family=Barlow+Condensed:wght@500;600;700;800&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#B8003A}a:hover{color:#8A002B}
+h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01em}
+</style>
+<style>#app button:focus-visible,#app a:focus-visible,#app input:focus-visible,#app select:focus-visible{outline:3px solid #007CC2;outline-offset:2px}</style>
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="dc-template">
+<div style="min-height: 100vh; display: flex; flex-wrap: wrap; background: #FBF8EF; color: #2A2228; font-family: 'Barlow', 'Helvetica Neue', sans-serif;">
+
+  <nav aria-label="Menu do portal" style="flex: 1 1 230px; max-width: 250px; box-sizing: border-box; padding: 24px 16px 32px; background: #D20143; color: #FFFFFF; display: flex; flex-direction: column; gap: 4px;">
+    <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding: 0 4px 24px;">
+      <img src="assets/logo-fmodia.png" alt="FM O Dia 100,5 — Alegria que irradia" style="width: 206px; height: auto; display: block;">
+      <span style="padding: 4px 10px; border-radius: 6px; background: #FEF9C0; color: #B8003A; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;">Portal Operacional</span>
+    </div>
+    <sc-for list="{{nav}}" as="n" hint-placeholder-count="7">
+      <a href="{{n.href}}" style="display: flex; align-items: center; gap: 12px; min-height: 46px; padding: 0 14px; border-radius: 10px; text-decoration: none; color: {{n.fg}}; background: {{n.bg}}; font-family: 'Barlow Condensed', 'Barlow', sans-serif; font-size: 18px; font-weight: {{n.fw}};">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{n.icon}}"></path></svg>
+        <span>{{n.label}}</span>
+      </a>
+    </sc-for>
+  </nav>
+
+  <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column;">
+    <header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 16px 32px; background: #FFFFFF; border-bottom: 1px solid #EFE8D8;">
+      <div style="display: flex; align-items: center; gap: 12px; flex: 1 1 auto;">
+        <span style="font-size: 19px; font-weight: 700;">Portal Operacional FM O Dia</span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 999px; background: #FDE6EC; color: #B8003A; font-size: 12px; font-weight: 700;"><span style="width: 7px; height: 7px; border-radius: 50%; background: #D20143;"></span>AO VIVO</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 10px; flex: 0 1 380px; min-height: 44px; padding: 0 16px; border-radius: 12px; background: #F5F0E3;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6B6168" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M11 19a8 8 0 1 0 0-16 8 8 0 0 0 0 16M21 21l-4.3-4.3"></path></svg>
+        <label for="busca" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);">Buscar</label>
+        <input id="busca" type="search" placeholder="Buscar ouvintes, mensagens, pedidos de música, promoções…" style="flex: 1 1 auto; min-width: 0; border: none; background: transparent; font: inherit; font-size: 13px; color: #2A2228;">
+      </div>
+      <button type="button" aria-label="Notificações, 3 novas" style="position: relative; width: 44px; height: 44px; border: none; border-radius: 12px; background: transparent; color: #2A2228; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9M13.7 21a2 2 0 0 1-3.4 0"></path></svg>
+        <span style="position: absolute; top: 6px; right: 6px; min-width: 16px; height: 16px; border-radius: 8px; background: #D20143; color: #FFFFFF; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center;">3</span>
+      </button>
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <div style="width: 40px; height: 40px; border-radius: 50%; background: #007CC2; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">CM</div>
+        <div style="display: flex; flex-direction: column;">
+          <span style="font-size: 14px; font-weight: 600;">Carla Mendes</span>
+          <span style="font-size: 12px; color: #6B6168;">Operação | FM O Dia</span>
+        </div>
+      </div>
+    </header>
+
+    <main style="box-sizing: border-box; padding: 28px 32px 36px; display: flex; flex-direction: column; gap: 20px;">
+      <a href="ouvintes.html" style="font-size: 13px; font-weight: 600; text-decoration: none;">← Voltar para Ouvintes</a>
+
+      <section style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; padding: 24px 28px; border-radius: 18px; background: #D20143; color: #FFFFFF;">
+        <div style="width: 84px; height: 84px; border-radius: 50%; background: #FFFFFF; color: #B8003A; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 700;">JS</div>
+        <div style="flex: 1 1 320px; display: flex; flex-direction: column; gap: 6px;">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px;">
+            <h1 style="margin: 0; font-size: 28px; font-weight: 700;">João Silva</h1>
+            <span style="padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #FACF1C; color: #2A2228;">FM O Dia Raiz</span>
+          </div>
+          <span style="font-size: 15px; color: #FFFFFF;">34 anos · Niterói, RJ · ouvinte desde março de 2026</span>
+          <span style="font-size: 13px; color: #FFE3EA;">CPF ***.456.789-** · (21) 9****-4410</span>
+        </div>
+        <div style="flex: 1 1 280px; display: flex; flex-wrap: wrap; gap: 8px;">
+          <sc-for list="{{tags}}" as="t" hint-placeholder-count="5">
+            <span style="padding: 6px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; background: rgba(255,255,255,0.14); color: #FFFFFF; border: 1px solid rgba(255,255,255,0.25);">{{t}}</span>
+          </sc-for>
+        </div>
+      </section>
+
+      <section aria-label="Resumo do ouvinte" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;">
+        <sc-for list="{{stats}}" as="s" hint-placeholder-count="4">
+          <div style="display: flex; gap: 14px; padding: 18px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05); min-width: 0;">
+            <div style="width: 48px; height: 48px; flex-shrink: 0; border-radius: 14px; background: {{s.tileBg}}; color: {{s.tileFg}}; display: flex; align-items: center; justify-content: center;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{s.icon}}"></path></svg>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+              <span style="font-size: 13px; font-weight: 600;">{{s.label}}</span>
+              <span style="font-size: 28px; font-weight: 700;">{{s.value}}</span>
+            </div>
+          </div>
+        </sc-for>
+      </section>
+
+      <section style="display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start;">
+        <div style="flex: 2 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; flex-direction: column; gap: 14px; padding: 20px 24px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+            <h2 style="margin: 0; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0M21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0"></path></svg>
+              Artistas mais pedidos
+            </h2>
+            <sc-for list="{{artists}}" as="a" hint-placeholder-count="3">
+              <div style="display: flex; flex-direction: column; gap: 6px;">
+                <div style="display: flex; justify-content: space-between; font-size: 14px;"><span style="font-weight: 600;">{{a.name}}</span><span style="color: #6B6168;">{{a.n}} pedidos</span></div>
+                <div style="height: 10px; border-radius: 5px; background: #F4EEE0;"><div style="height: 10px; width: {{a.pct}}%; border-radius: 5px; background: #D20143;"></div></div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 20px 24px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+            <h2 style="margin: 0 0 6px; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"></path></svg>
+              Programas que acompanha
+            </h2>
+            <sc-for list="{{shows}}" as="p" hint-placeholder-count="3">
+              <div style="display: flex; justify-content: space-between; gap: 12px; padding: 10px 0; border-bottom: 1px solid #F4EEE0; font-size: 14px;"><span style="font-weight: 600;">{{p.name}}</span><span style="color: #6B6168;">{{p.n}} interações</span></div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="flex: 3 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 4px; padding: 20px 24px; background: #FFFFFF; border: 1px solid #EFE8D8; border-radius: 16px; box-shadow: 0 2px 10px rgba(60,30,20,0.05);">
+          <h2 style="margin: 0 0 10px; display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D20143" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l3-8 4 16 3-8h4"></path></svg>
+            Linha do tempo de interações
+          </h2>
+          <sc-for list="{{timeline}}" as="e" hint-placeholder-count="6">
+            <div style="display: flex; align-items: center; gap: 14px; padding: 12px 0; border-bottom: 1px solid #F4EEE0;">
+              <span style="flex: 0 0 88px; font-size: 12px; color: #6B6168;">{{e.when}}</span>
+              <div style="width: 38px; height: 38px; flex-shrink: 0; border-radius: 10px; background: {{e.tileBg}}; color: {{e.tileFg}}; display: flex; align-items: center; justify-content: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{{e.icon}}"></path></svg>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
+                <span style="font-size: 13px; font-weight: 600;">{{e.title}}</span>
+                <span style="font-size: 12px; color: #4A4247;">{{e.detail}}</span>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </section>
+
+      <footer style="font-size: 12px; color: #6B6168;">Tela ilustrativa — layout final definido durante o projeto. Dados pessoais exibidos mascarados.</footer>
+    </main>
+  </div>
+</div>
+</script>
+<script src="assets/dc-lite.js"></script>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    var I = {
+      home: 'M3 11l9-7 9 7M5 10v10h14V10',
+      link: 'M10 14a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1 1M14 10a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1-1',
+      wave: 'M4 10v4M8 7v10M12 4v16M16 7v10M20 10v4',
+      users: 'M16 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8M22 20v-2a4 4 0 0 0-3-3.87M16 2.13a4 4 0 0 1 0 7.75',
+      cal: 'M4 5h16v16H4zM4 10h16M8 3v4M16 3v4',
+      gift: 'M3 8h18v4H3zM5 12v9h14v-9M12 8v13M12 8C10 4 7 4 7 6s3 2 5 2c2 0 5 0 5-2s-3-2-5 2',
+      trophy: 'M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4',
+      gear: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9L7 7M17 17l2.1 2.1M4.9 19.1L7 17M17 7l2.1-2.1',
+      chat: 'M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z',
+      music: 'M9 18V5l12-2v13M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0M21 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0',
+      ok: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M8 12l3 3 5-6',
+      user: 'M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8',
+      clock: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 7v5l3 2'
+    };
+    var active = 'Ouvintes';
+    var navDefs = [['Painel operacional', I.home, 'index.html'], ['Aprovação de mensagens', I.wave, 'aprovacao.html'], ['Ouvintes', I.users, 'ouvintes.html'], ['Grade e assunto', I.cal, 'grade.html'], ['Promoções e sorteios', I.gift, 'promocoes.html'], ['FM O Dia Raiz', 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z', 'fmdiaraiz.html'], ['Publicidade', 'M3 11v3a1 1 0 0 0 1 1h3l5 4V6L7 10H4a1 1 0 0 0-1 1M16 8a5 5 0 0 1 0 8M19 5a9 9 0 0 1 0 14', 'publicidade.html']];
+    var nav = navDefs.map(function (d) {
+      var on = d[0] === active;
+      return { label: d[0], icon: d[1], href: d[2], fg: on ? '#B8003A' : '#FFFFFF', bg: on ? '#FEF9C0' : 'transparent', fw: on ? 700 : 600 };
+    });
+    var pink = { tileBg: '#FDE6EC', tileFg: '#D20143' };
+    var purple = { tileBg: '#E3F1FA', tileFg: '#007CC2' };
+    var green = { tileBg: '#E3F5EA', tileFg: '#157A42' };
+    var blue = { tileBg: '#E6F0FD', tileFg: '#2F6FD6' };
+    return {
+      nav: nav,
+      tags: ['Se Liga', 'Pagode', 'Manhã', 'Participa de promoções', 'Envia trânsito'],
+      stats: [
+        Object.assign({ label: 'Interações', value: '17', icon: I.chat }, purple),
+        Object.assign({ label: 'Promoções', value: '4', icon: I.gift }, pink),
+        Object.assign({ label: 'Pedidos de música', value: '9', icon: I.music }, pink),
+        Object.assign({ label: 'Mensagens aprovadas', value: '5', icon: I.ok }, green)
+      ],
+      artists: [
+        { name: 'Menos é Mais', n: 5, pct: 100 },
+        { name: 'Ferrugem', n: 3, pct: 60 },
+        { name: 'Thiaguinho', n: 1, pct: 20 }
+      ],
+      shows: [
+        { name: 'Se Liga', n: 12 },
+        { name: 'Vivy Tenório e Thales', n: 3 },
+        { name: 'FM O Dia Retrô', n: 2 }
+      ],
+      timeline: [
+        Object.assign({ when: 'Hoje 08:41', title: 'Áudio de trânsito · aprovado', detail: 'Acidente na Avenida Brasil, sentido Centro, altura de Bonsucesso', icon: I.wave }, green),
+        Object.assign({ when: '06/10 07:15', title: 'Promoção da hora', detail: 'Participou: par de ingressos — show de Ferrugem', icon: I.gift }, pink),
+        Object.assign({ when: '03/10 11:02', title: 'Pedido de música', detail: 'Menos é Mais — "Lapada Dela", identificado pela IA', icon: I.music }, pink),
+        Object.assign({ when: '29/09 07:48', title: 'Alô Alô · texto', detail: 'Alô para a esposa, Carla, pelo aniversário de casamento', icon: I.chat }, purple),
+        Object.assign({ when: '22/09 08:05', title: 'A Casa Caiu · em análise, não usado', detail: 'Recebeu a mensagem de encerramento', icon: I.clock }, blue),
+        Object.assign({ when: '15/09 10:30', title: 'Cadastro', detail: 'Entrou no clube FM O Dia Raiz', icon: I.user }, blue)
+      ]
+    };
+  }
+}
+</script>
+<script>DC.mount();</script>
+</body>
+</html>

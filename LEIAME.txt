@@ -1,0 +1,9 @@
+Portal Operacional FM O Dia — mockup navegável (demo)
+PV-869 · telas ilustrativas, com dados fictícios
+
+Site estático: publique a pasta inteira em qualquer hospedagem de arquivos (S3, nginx, IIS, Netlify).
+Página inicial: index.html. Não há backend nem dados reais.
+
+Telas: index.html (Painel operacional), aprovacao.html, ouvintes.html, ouvinte.html, grade.html, promocoes.html (promoções simultâneas, vários ganhadores, filtros de elegibilidade), fmdiaraiz.html (clube FM O Dia Raiz) e publicidade.html (oferta com aceite do ouvinte).
+Requer internet só para as fontes do Google Fonts; sem ela, o navegador usa uma fonte padrão.
+Logo: FM O Dia, obtido de fmodia.com.br — uso restrito à demonstração para a própria rádio.
