@@ -79,7 +79,7 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
       <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px;">
         <div style="display: flex; flex-direction: column; gap: 6px;">
           <h1 style="margin: 0; font-size: 30px; font-weight: 700;">Publicidade</h1>
-          <span style="font-size: 15px; color: #6B6168;">O chatbot pergunta se o ouvinte quer receber a oferta, só apresenta o anúncio quando há aceite e registra a resposta.</span>
+          <span style="font-size: 15px; color: #6B6168;">A autorização é solicitada no início da conversa. Depois, os anúncios são exibidos diretamente conforme as regras de frequência e momento.</span>
         </div>
         <button type="button" style="min-height: 46px; padding: 0 20px; border: none; border-radius: 12px; background: #D20143; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer;">Nova oferta</button>
       </div>
@@ -141,20 +141,21 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
             <div style="align-self: flex-start; max-width: 85%; padding: 10px 12px; border-radius: 12px; background: #FFFFFF; font-size: 14px;">{{ask}}</div>
             <sc-if value="{{asking}}" hint-placeholder-val="{{true}}">
               <div style="display: flex; gap: 8px;">
-                <button type="button" onClick="{{yes}}" style="flex: 1; min-height: 44px; border: none; border-radius: 12px; background: #FFFFFF; color: #007CC2; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;">Sim, quero ver</button>
-                <button type="button" onClick="{{no}}" style="flex: 1; min-height: 44px; border: none; border-radius: 12px; background: #FFFFFF; color: #007CC2; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;">Agora não</button>
+                <button type="button" onClick="{{yes}}" style="flex: 1; min-height: 44px; border: none; border-radius: 12px; background: #FFFFFF; color: #007CC2; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;">Autorizar e continuar</button>
+                <button type="button" onClick="{{no}}" style="flex: 1; min-height: 44px; border: none; border-radius: 12px; background: #FFFFFF; color: #007CC2; font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;">Não autorizar</button>
               </div>
             </sc-if>
             <sc-if value="{{answered}}" hint-placeholder-val="{{false}}">
               <div style="align-self: flex-end; max-width: 85%; padding: 10px 12px; border-radius: 12px; background: #DCF8C6; font-size: 14px;">{{answer}}</div>
               <sc-if value="{{accepted}}" hint-placeholder-val="{{false}}">
+                <div style="font-size: 12px; color: #6B6168;">{{context}}</div>
                 <div style="align-self: flex-start; max-width: 92%; padding: 6px; border-radius: 12px; background: #FFFFFF; font-size: 14px; display: flex; flex-direction: column; gap: 6px;">
                   <span style="padding: 2px 6px; font-size: 11px; font-weight: 700; color: #6B6168;">{{adFmt}}</span>
                   <sc-if value="{{hasImg}}" hint-placeholder-val="{{true}}"><img src="{{adImg}}" alt="{{adAlt}}" style="display: block; width: 100%; height: auto; border-radius: 8px;"></sc-if>
                   <span style="padding: 2px 6px 4px;">{{adText}}</span>
                 </div>
               </sc-if>
-              <button type="button" onClick="{{reset}}" style="align-self: flex-start; min-height: 38px; padding: 0 14px; border: 1px solid #E5DCC8; border-radius: 999px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">Reiniciar simulação</button>
+              <button type="button" onClick="{{reset}}" style="align-self: flex-start; min-height: 38px; padding: 0 14px; border: 1px solid #E5DCC8; border-radius: 999px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;">Reiniciar conversa</button>
             </sc-if>
           </div>
           <span style="font-size: 12px; color: #6B6168;">{{reg}}</span>
@@ -168,13 +169,13 @@ h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01e
         </div>
         <div style="overflow-x: auto;">
           <table style="width: 100%; min-width: 720px; border-collapse: collapse; font-size: 14px;">
-            <thead><tr style="text-align: left; color: #6B6168; font-size: 12px;"><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Patrocinador</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Formato</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Ofertas enviadas</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Aceites</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Taxa de aceite</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Recusas</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Cliques</th></tr></thead>
+            <thead><tr style="text-align: left; color: #6B6168; font-size: 12px;"><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Patrocinador</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Formato</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Ofertas enviadas</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Cliques</th><th style="padding: 10px 8px; font-weight: 600; border-bottom: 1px solid #EFE8D8;">Taxa de cliques</th></tr></thead>
             <tbody>
               <sc-for list="{{offers}}" as="o" hint-placeholder-count="4">
                 <tr style="background: {{o.bg}};">
                   <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;"><button type="button" onClick="{{o.pick}}" style="border: none; background: transparent; padding: 0; font: inherit; font-weight: 700; color: #B8003A; cursor: pointer; text-align: left;">{{o.sponsor}}</button></td>
-                  <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{o.fmt}}</td><td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{o.sent}}</td><td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{o.yes}}</td>
-                  <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;"><span style="font-weight: 700;">{{o.rate}}</span></td><td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{o.no}}</td><td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{o.clicks}}</td>
+                  <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{o.fmt}}</td><td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{o.sent}}</td><td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;">{{o.clicks}}</td>
+                  <td style="padding: 12px 8px; border-bottom: 1px solid #F4EEE0;"><span style="font-weight: 700;">{{o.rate}}</span></td>
                 </tr>
               </sc-for>
             </tbody>
@@ -207,13 +208,13 @@ var FMT = ['Texto', 'Imagem estática'];
 var FREQ = ['1 por dia', '1 por semana', '1 por campanha'];
 var WHEN = ['Após participar de promoção', 'Ao iniciar a conversa', 'Após enviar áudio'];
 var OFFERS = [
-  { sponsor: 'Supermercados Guanabara', fmt: 1, freq: 1, when: 0, sent: 1840, yes: 612, no: 905, clicks: 241, text: 'Ofertas da semana com até 30% de desconto. Toque para ver o encarte.' },
-  { sponsor: 'Cervejaria Região Oceânica', fmt: 1, freq: 0, when: 1, sent: 960, yes: 288, no: 511, clicks: 97, text: 'Happy hour em dobro nos bares parceiros, de quinta a sábado.' },
-  { sponsor: 'Clínica Sorriso Carioca', fmt: 1, freq: 2, when: 2, sent: 410, yes: 98, no: 242, clicks: 31, text: 'Avaliação odontológica gratuita para ouvintes da FM O Dia.' },
-  { sponsor: 'Shopping Plaza Niterói', fmt: 1, freq: 1, when: 0, sent: 1275, yes: 466, no: 603, clicks: 184, text: 'Liquidação de inverno: lojas com até 50% off neste fim de semana.' }
+  { sponsor: 'Supermercados Guanabara', fmt: 1, freq: 1, when: 0, sent: 1840, clicks: 241, text: 'Ofertas da semana com até 30% de desconto. Toque para ver o encarte.' },
+  { sponsor: 'Cervejaria Região Oceânica', fmt: 1, freq: 0, when: 1, sent: 960, clicks: 97, text: 'Happy hour em dobro nos bares parceiros, de quinta a sábado.' },
+  { sponsor: 'Clínica Sorriso Carioca', fmt: 1, freq: 2, when: 2, sent: 410, clicks: 31, text: 'Avaliação odontológica gratuita para ouvintes da FM O Dia.' },
+  { sponsor: 'Shopping Plaza Niterói', fmt: 1, freq: 1, when: 0, sent: 1275, clicks: 184, text: 'Liquidação de inverno: lojas com até 50% off neste fim de semana.' }
 ];
 class Component extends DCLogic {
-  constructor(props) { super(props); this.state = { sel: 0, ov: {}, ans: null, counts: {} }; }
+  constructor(props) { super(props); this.state = { sel: 0, ov: {}, ans: null }; }
   renderVals() {
     var self = this; var active = 'Publicidade';
     var navDefs = [['Painel operacional', I.home, 'index.html'], ['Aprovação de mensagens', I.wave, 'aprovacao.html'], ['Ouvintes', I.users, 'ouvintes.html'], ['Grade e assunto', I.cal, 'grade.html'], ['Promoções e sorteios', I.gift, 'promocoes.html'], ['FM O Dia Raiz', STAR, 'fmdiaraiz.html'], ['Publicidade', MEGA, 'publicidade.html']];
@@ -225,29 +226,28 @@ class Component extends DCLogic {
     var sel = this.state.sel, base = OFFERS[sel], ov = this.state.ov[sel] || {};
     var cfg = { fmt: ov.fmt !== undefined ? ov.fmt : base.fmt, freq: ov.freq !== undefined ? ov.freq : base.freq, when: ov.when !== undefined ? ov.when : base.when };
     var set = function (k, v) { var all = Object.assign({}, self.state.ov); all[sel] = Object.assign({}, ov); all[sel][k] = v; self.setState({ ov: all }); };
-    var cnt = this.state.counts[sel] || { y: 0, n: 0 };
     var ans = this.state.ans;
     var offers = OFFERS.map(function (o, i) {
-      var c = self.state.counts[i] || { y: 0, n: 0 }, oo = self.state.ov[i] || {};
-      var yes = o.yes + c.y, no = o.no + c.n, sent = o.sent + c.y + c.n;
-      return { sponsor: o.sponsor, fmt: FMT[oo.fmt !== undefined ? oo.fmt : o.fmt], sent: sent.toLocaleString('pt-BR'), yes: yes.toLocaleString('pt-BR'), no: no.toLocaleString('pt-BR'), clicks: o.clicks, rate: Math.round(yes / sent * 100) + '%', bg: i === sel ? '#FFF9DB' : 'transparent', pick: function () { self.setState({ sel: i, ans: null }); } };
+      var oo = self.state.ov[i] || {};
+      return { sponsor: o.sponsor, fmt: FMT[oo.fmt !== undefined ? oo.fmt : o.fmt], sent: o.sent.toLocaleString('pt-BR'), clicks: o.clicks.toLocaleString('pt-BR'), rate: (o.clicks / o.sent * 100).toFixed(1).replace('.', ',') + '%', bg: i === sel ? '#FFF9DB' : 'transparent', pick: function () { self.setState({ sel: i }); } };
     });
-    var answer = function (v) { var all = Object.assign({}, self.state.counts); var c = Object.assign({ y: 0, n: 0 }, all[sel]); if (v) c.y++; else c.n++; all[sel] = c; self.setState({ ans: v ? 'yes' : 'no', counts: all }); };
+    var answer = function (v) { self.setState({ ans: v ? 'yes' : 'no' }); };
     return {
       nav: nav, off: base, offers: offers,
       stats: [
         { label: 'Ofertas enviadas hoje', value: '4.485', note: '4 patrocinadores ativos', icon: I.chat, tileBg: '#E3F1FA', tileFg: '#007CC2' },
-        { label: 'Taxa de aceite', value: '34%', note: 'ouvintes que quiseram ver', icon: I.check, tileBg: '#E3F5EA', tileFg: '#157A42' },
-        { label: 'Anúncios apresentados', value: '1.464', note: 'somente após aceite', icon: MEGA, tileBg: '#FDE6EC', tileFg: '#D20143' },
-        { label: 'Cliques', value: '553', note: '38% dos anúncios', icon: I.gift, tileBg: '#FFF0E0', tileFg: '#C26A00' }
+        { label: 'Taxa de cliques', value: '12,3%', note: 'cliques sobre anúncios enviados', icon: I.check, tileBg: '#E3F5EA', tileFg: '#157A42' },
+        { label: 'Patrocinadores ativos', value: '4', note: 'publicidade durante a conversa', icon: MEGA, tileBg: '#FDE6EC', tileFg: '#D20143' },
+        { label: 'Cliques', value: '553', note: 'nos anúncios enviados', icon: I.gift, tileBg: '#FFF0E0', tileFg: '#C26A00' }
       ],
       fmtChips: FMT.map(function (n, i) { return chip(n, cfg.fmt === i, function () { set('fmt', i); }); }),
       freqChips: FREQ.map(function (n, i) { return chip(n, cfg.freq === i, function () { set('freq', i); }); }),
       whenChips: WHEN.map(function (n, i) { return chip(n, cfg.when === i, function () { set('when', i); }); }),
-      summary: 'anúncio em ' + FMT[cfg.fmt].toLowerCase() + ', no máximo ' + FREQ[cfg.freq].replace('1 por ', '1 vez por ').replace('1 vez por campanha', '1 vez por campanha') + ' por ouvinte, oferecido ' + WHEN[cfg.when].toLowerCase() + '. O anúncio só aparece se o ouvinte aceitar.',
-      ask: 'Quer receber uma oferta de ' + base.sponsor + '? 🎁',
+      summary: 'anúncio em ' + FMT[cfg.fmt].toLowerCase() + ', no máximo ' + FREQ[cfg.freq].replace('1 por ', '1 vez por ').replace('1 vez por campanha', '1 vez por campanha') + ' por ouvinte, oferecido ' + WHEN[cfg.when].toLowerCase() + '. Exibição direta para ouvintes com autorização registrada no início da conversa.',
+      ask: 'Olá! Antes de começar, solicitamos sua autorização para tratar seus dados na interação com a FM O Dia e enviar conteúdos e ofertas de patrocinadores pelo WhatsApp. Você pode retirar sua autorização a qualquer momento. Deseja autorizar?',
       asking: !ans, answered: !!ans, accepted: ans === 'yes',
-      answer: ans === 'yes' ? 'Sim, quero ver' : 'Agora não',
+      answer: ans === 'yes' ? 'Autorizo. Vamos começar!' : 'Não autorizo.',
+      context: WHEN[cfg.when] + ' · anúncio exibido automaticamente',
       adFmt: FMT[cfg.fmt].toUpperCase() + ' · ANÚNCIO',
       adText: base.text,
       hasImg: cfg.fmt !== 0,
@@ -255,7 +255,7 @@ class Component extends DCLogic {
       adAlt: 'Arte fictícia do anúncio de ' + base.sponsor,
       yes: function () { answer(true); }, no: function () { answer(false); },
       reset: function () { self.setState({ ans: null }); },
-      reg: ans ? 'Resposta registrada: ' + (ans === 'yes' ? 'aceite' : 'recusa') + ' · ' + base.sponsor + ' · ' + (cnt.y + cnt.n) + ' simulação(ões) nesta sessão.' : 'A resposta do ouvinte é registrada no perfil e nos indicadores do patrocinador.'
+      reg: ans === 'yes' ? 'Autorização registrada no início da conversa. A publicidade é exibida diretamente, sem nova pergunta por anúncio.' : ans === 'no' ? 'Autorização não concedida. Nenhum anúncio é exibido nesta simulação.' : 'Simulação do início da conversa: a autorização é solicitada uma única vez, antes da jornada.'
     };
   }
 }
