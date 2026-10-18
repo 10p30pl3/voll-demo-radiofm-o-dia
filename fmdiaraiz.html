@@ -13,6 +13,25 @@ a{color:#B8003A}a:hover{color:#8A002B}
 h1,h2,h3{font-family:'Barlow Condensed','Barlow',sans-serif;letter-spacing:0.01em}
 </style>
 <style>#app button:focus-visible,#app a:focus-visible,#app input:focus-visible,#app select:focus-visible{outline:3px solid #007CC2;outline-offset:2px}</style>
+<style id="fixed-sidebar">
+#app nav[aria-label="Menu do portal"] {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 250px;
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  z-index: 20;
+}
+#app nav[aria-label="Menu do portal"] > * { flex-shrink: 0; }
+#app nav[aria-label="Menu do portal"] + div {
+  margin-left: 250px;
+  flex: 1 1 auto !important;
+  width: calc(100% - 250px);
+  max-width: calc(100% - 250px);
+}
+</style>
 </head>
 <body>
 <div id="app"></div>
